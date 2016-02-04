@@ -1,0 +1,7 @@
+<% if @products.any? %>
+	<% @products.each do |product| %>
+		<%= link_to "#{product.id}", product_path(product), class: "something" %>
+	<% end %>
+<% else %>
+		<p>No products yet</p>
+<% end %>
