@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
-  let!(:category) {  Category.create }
-  let!(:product) { Product.create }
+  let(:product) { Product.create }
 
 	describe "#show" do
     it "renders the show template" do
