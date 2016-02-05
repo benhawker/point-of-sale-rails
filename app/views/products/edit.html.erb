@@ -1,1 +1,4 @@
-edit.html.erb
+<%= form_for @product, html: {multipart: true} do |f| %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.submit "Edit Product", class: "btn btn-primary" %>
+<% end %>
