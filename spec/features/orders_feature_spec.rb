@@ -1,1 +1,6 @@
-orders_feature_spec.rb
+require 'rails_helper'
+
+feature "Orders" do
+
+
+end
