@@ -1,0 +1,7 @@
+<% if @orders.any? %>
+	<% @orders.each do |order| %>
+		<%= link_to "#{order.name}", order_path(order), class: "something" %>
+	<% end %>
+<% else %>
+		<p>No orders yet</p>
+<% end %>
