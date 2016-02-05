@@ -1,0 +1,5 @@
+<%= form_for @order, html: {multipart: true} do |f| %>
+  <%= f.text_field :customer_name, class: "form-control" %>
+  <%= f.text_field :total, class: "form-control" %>
+  <%= f.submit "Create Order", class: "btn btn-primary" %>
+<% end %>
