@@ -14,7 +14,7 @@ class OrdersController < ApplicationController
 	end
 
 	def create
-		@order = Order.new(Order_params)
+		@order = Order.new(order_params)
 		if @order.save
 			flash[:notices] = ['Order created successfully']
       redirect_to orders_path
@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
-		if @order.update(Order_params)
+		if @order.update(order_params)
       flash[:notices] = ["Order was successfully updated"]
       render 'show'
     else
@@ -55,7 +55,7 @@ class OrdersController < ApplicationController
 
   private
 
-  def Order_params
+  def order_params
     params.require(:order).permit(:customer_name, :total)
   end
 
