@@ -1,3 +1,11 @@
+<section>
+	<%= form_tag(products_path, :method => "get", id: "search-form") do %>
+		<%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+		<%= submit_tag "Search" %>
+	<% end %>
+</section>
+
+
 <% if @products.any? %>
 	<% @products.each do |product| %>
 		<%= link_to "#{product.name}", product_path(product), class: "something" %>
@@ -5,3 +13,5 @@
 <% else %>
 		<p>No products yet</p>
 <% end %>
+
+	
