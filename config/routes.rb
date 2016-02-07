@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :categories
+    resources :products
+  end
+
   resources :categories
   resources :products
   resources :orders
   resources :customers
 
   get "welcome/index"
-
   root :to => 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
