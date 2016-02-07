@@ -1,4 +1,4 @@
-class CategoriesController < ApplicationController
+class Admin::CategoriesController < ApplicationController
 
 	def index
 		@categories = Category.paginate(page: params[:page])
@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
 		@category = Category.new(category_params)
 		if @category.save
 			flash[:notices] = ['Category created successfully']
-      redirect_to categories_path
+      redirect_to admin_categories_path
     else
       render 'new'
     end
@@ -41,10 +41,10 @@ class CategoriesController < ApplicationController
 		@category = Category.find(params[:id])
 		if @category.destroy
       flash[:notices] = ["Category was successfully deleted"]
-      redirect_to categories_path
+      redirect_to admin_categories_path
     else
       flash[:notices] = ["Category could not be deleted"]
-      render category_path(@category)
+      render admin_category_path(@category)
     end
 	end
 

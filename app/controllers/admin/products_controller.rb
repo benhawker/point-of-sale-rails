@@ -1,4 +1,4 @@
-class ProductsController < ApplicationController
+class Admin::ProductsController < ApplicationController
 
 	def index
 		@products = Product.paginate(page: params[:page])
@@ -17,7 +17,7 @@ class ProductsController < ApplicationController
 		@product = Product.new(product_params)
 		if @product.save
 			flash[:notices] = ['Product created successfully']
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       render 'new'
     end
@@ -46,10 +46,10 @@ class ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		if @product.destroy
       flash[:notices] = ["Product was successfully deleted"]
-      redirect_to products_path
+      redirect_to admin_products_path
     else
       flash[:notices] = ["Product could not be deleted"]
-      render product_path(@product)
+      render admin_product_path(@product)
     end
 	end
 
