@@ -1,6 +1,4 @@
 class Order < ActiveRecord::Base
-	attr_accessor :calculate_total
-
 	belongs_to :customer
 	has_many :payments
 	has_many :order_items
