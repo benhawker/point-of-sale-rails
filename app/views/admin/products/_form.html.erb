@@ -1,5 +1,5 @@
 <%= form_for([:admin, @product]) do |f| %> 
-	<%= f.select :category, Category.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Please place your product in a category"}, class: "form-control" %>
+	<%= f.select :category, Category.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Every product needs a category!"}, class: "form-control" %>
   <%= f.text_field :name, class: "form-control" %>
   <%= f.submit "Create Product", class: "btn btn-primary" %>
 <% end %>
