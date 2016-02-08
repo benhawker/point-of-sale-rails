@@ -15,6 +15,7 @@ class Admin::ProductsController < ApplicationController
 
 	def create
 		@product = Product.new(product_params)
+    @product.category = Category.find(params[:product][:category])
 		if @product.save
 			flash[:notices] = ['Product created successfully']
       redirect_to admin_products_path
@@ -33,6 +34,7 @@ class Admin::ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
+    @product.category = Category.find(params[:product][:category])
 		if @product.update(product_params)
       flash[:notices] = ["Product was successfully updated"]
       render 'show'
