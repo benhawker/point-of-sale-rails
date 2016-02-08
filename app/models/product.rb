@@ -4,6 +4,14 @@ class Product < ActiveRecord::Base
 	has_many :order_items
   has_many :orders, through: :order_items
 
+  # Association validations
+  validates_presence_of :category
+
+  # Attribute validations
+  validates_presence_of :name, message: "Please add a product name."
+  validates_presence_of :description, message: "Please add a description."
+  validates_presence_of :price, message: "Please add a price."
+
   #Search
   def self.search(search)
     where("name ILIKE ?", "%#{search}%") 

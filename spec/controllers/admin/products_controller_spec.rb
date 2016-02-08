@@ -1,25 +1,25 @@
 require 'rails_helper'
 
-RSpec.describe CategoriesController, type: :controller do
-  let(:category) { Category.create }
+RSpec.describe Admin::ProductsController, type: :controller do
+  let(:product) { Product.create }
 
 	describe "#show" do
     it "renders the show template" do
-      get :show, {id: category.id}
+      get :show, {id: product.id}
       expect(response).to render_template(:show)
       expect(response.status).to eql(200)
     end
 
-    it "shows the correct category" do
-      get :show, {id: category.id}
-      expect(assigns(:category)).to eq(category)
+    it "shows the correct product" do
+      get :show, {id: product.id}
+      expect(assigns(:product)).to eq(product)
     end
   end
 
   describe "#index" do
-    it "assigns all categorys as @categorys" do
+    it "assigns all products as @products" do
       get :index
-      expect(assigns(:categories)).to eq([category])
+      expect(assigns(:products)).to eq([product])
     end
 
     it "renders the index template" do
@@ -30,9 +30,9 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe "#new" do
-    it "assigns a new category as @category" do
+    it "assigns a new product as @product" do
       get :new
-      expect(assigns(:category)).to be_a_new(Category)
+      expect(assigns(:product)).to be_a_new(Product)
     end
 
     it "renders the new template" do
@@ -43,11 +43,9 @@ RSpec.describe CategoriesController, type: :controller do
   end
 
   describe "#edit" do
-    it "assigns the requested category as @category" do
-      get :edit, {:id => category.to_param}
-      expect(assigns(:category)).to eq(category)
+    it "assigns the requested product as @product" do
+      get :edit, {:id => product.to_param}
+      expect(assigns(:product)).to eq(product)
     end
   end
-
-
 end
