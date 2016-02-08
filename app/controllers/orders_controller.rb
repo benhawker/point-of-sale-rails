@@ -15,6 +15,7 @@ class OrdersController < ApplicationController
 
 	def create
 		@order = Order.new(order_params)
+    @order.customer = Customer.find(params[:order][:customer])
 		if @order.save
 			flash[:notices] = ['Order created successfully']
       redirect_to orders_path
@@ -33,6 +34,7 @@ class OrdersController < ApplicationController
 
 	def update
 		@order = Order.find(params[:id])
+    @order.customer = Customer.find(params[:order][:customer])
 		if @order.update(order_params)
       flash[:notices] = ["Order was successfully updated"]
       render 'show'
