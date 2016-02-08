@@ -1,26 +1,31 @@
 // $(document).ready(function() {
-//   $("#addNewProduct").click(function() {
-//     $("#items-div").append(createNewInputElement($("#items-div")));
+//   $("#addNewItem").click(function() {
+//   	$("#single-item-div").append(createNewInputElement($("#product-select")));
 //   });
 // });
 
 // function createNewInputElement(form) {
-//   var newIndex = $("#items-div").children('input.item-box').length;
-//   var newInput = $(".item-box").clone().attr('name', generateNewInputName(newIndex));
-//   newInput.val('');
+//   var newIndex = $("#single-item-div").children('input#product-select').length;
+//   var newInput = $("#single-item-div").clone().attr('name', generateNewInputNameForProduct(newIndex));
+  
+//   $("#single-item-div").clone().attr('name', generateNewInputNameForQuantity(newIndex));
+
 //   return newInput;
 // };
 
-// function generateNewInputName(idx) {
+// function generateNewInputNameForProduct(idx) {
 //   return "order[order_items_attributes][" + idx + "][product_id]"
 // };
 
+// function generateNewInputNameForQuantity(idx) {
+//   return "order[order_items_attributes][" + idx + "][quantity]"
+// };
 
 // $(document).ready(function(){
-//   $("#deleteLastProduct").click(function() {
-//     if ($("#items-div input").length > 1) {
-//      $("#items-div input:last-child").remove();
-//   }
+//   $("#deleteLastItem").click(function() {
+//     if ($("#items-div").children($("#single-item-div")).length > 1) {
+//      $("#items-div #single-item-div").last().remove();
+//   	}
 //   });
 // });
 

@@ -17,12 +17,18 @@ class OrdersController < ApplicationController
 	def create
 		@order = Order.new(order_params)
     @order.customer = Customer.find(params[:order][:customer])
-		if @order.save
-      @order.calculate_total
-			flash[:notices] = ['Order created successfully']
-      redirect_to orders_path
+    
+    if params[:add_order_item]
+      @order.order_items.build
     else
-      render 'new'
+
+  		if @order.save
+        @order.calculate_total
+  			flash[:notices] = ['Order created successfully']
+        redirect_to orders_path
+      else
+        render 'new'
+      end
     end
 	end
 

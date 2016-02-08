@@ -1,0 +1,7 @@
+<li>Category Name <%= @category.name %></li>
+
+<% @category.products.each do |product| %>
+	<%= product.name %> / <%= product.price %> / <%= product.in_stock %>
+<% end %>
+
+

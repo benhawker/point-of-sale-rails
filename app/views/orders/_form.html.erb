@@ -3,13 +3,18 @@
 
 	<div id="items-div" class='form-group'>
     <%= f.fields_for :order_items do |order_item| %>
-      <%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "item-box" %>
-      <%= order_item.select :quantity, options_for_select(0..10), { prompt: "Quantity" }, id: "item-box" %>
+    	<div id="single-item-div">
+      	<%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "product-select" %>
+      	<%= order_item.select :quantity, options_for_select(0..10), { prompt: "Quantity" }, id: "quantity-select" %>
+     	</div>
     <% end %>
   </div>
+  <%= f.submit 'Add another item', name: "add_order_item" %>
 
   <%= f.submit "Create Order", class: "btn btn-primary" %>
 <% end %>
 
-<button class="btn btn-default" id="addNewProduct">Add Product</button> 
-<button class="btn btn-default" id="deleteLastProduct">Delete Last Product</button>
+___
+
+<button class="btn btn-default" id="addNewItem">Add Product</button> 
+<button class="btn btn-default" id="deleteLastItem">Delete Last Product</button>
