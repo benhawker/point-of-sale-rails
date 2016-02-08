@@ -7,8 +7,11 @@ Rails.application.routes.draw do
 
   resources :categories
   resources :products
-  resources :orders
   resources :customers
+  
+  resources :orders do
+    resources :order_items
+  end
 
   get "welcome/index"
   root :to => 'welcome#index'
