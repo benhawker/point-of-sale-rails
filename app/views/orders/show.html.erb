@@ -1,9 +1,18 @@
 <li>Order ID <%= @order.id %></li>
 <li>Customer Name <%= @order.customer.name %></li>
 <li>Order Total <%= @order.total %></li>
+<br>
+<li>Number of Items in the order: <%= @order.order_items.count %></li>
 
+<ul>
 <% @order.order_items.each do |order_item| %>
-	<%= order_item.product.name %> / <%= order_item.quantity %>
+	<li>
+		Product: <%= order_item.product.name %> / Quantity: <%= order_item.quantity %>
+		<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete %>
+	</li>
 <% end %>
+</ul>
+
+<%= link_to "Edit Order", edit_order_path %>
 
 

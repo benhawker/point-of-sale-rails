@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
 		@order = Order.new(order_params)
     @order.customer = Customer.find(params[:order][:customer])
 		if @order.save
+      @order.calculate_total
 			flash[:notices] = ['Order created successfully']
       redirect_to orders_path
     else
@@ -59,7 +60,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:customer_name, :total, order_items_attributes:[:product_id])
+    params.require(:order).permit(:customer_name, order_items_attributes:[:product_id, :quantity])
   end
 
 

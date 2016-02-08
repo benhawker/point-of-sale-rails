@@ -1,15 +1,15 @@
 <%= form_for @order, html: {multipart: true} do |f| %>
 	<%= f.select :customer, Customer.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Every order needs a customer!"}, class: "form-control" %>
 
-	<div id="order-items-div" class='form-group'>
+	<div id="items-div" class='form-group'>
     <%= f.fields_for :order_items do |order_item| %>
-      <%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id:"order-items-entry" %>
+      <%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "item-box" %>
+      <%= order_item.select :quantity, options_for_select(0..10), { prompt: "Quantity" }, id: "item-box" %>
     <% end %>
   </div>
 
-  <%= f.text_field :total, class: "form-control" %>
   <%= f.submit "Create Order", class: "btn btn-primary" %>
 <% end %>
 
-<button class="btn btn-default" id="addNewProduct">Add Product</button><br>
+<button class="btn btn-default" id="addNewProduct">Add Product</button> 
 <button class="btn btn-default" id="deleteLastProduct">Delete Last Product</button>
