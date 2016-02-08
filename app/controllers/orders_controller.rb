@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 
 	def new
 		@order = Order.new
+    @order.order_items.build
 	end
 
 	def create
@@ -58,7 +59,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:customer_name, :total)
+    params.require(:order).permit(:customer_name, :total, order_items_attributes:[:product_id])
   end
 
 

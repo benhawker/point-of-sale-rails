@@ -1,3 +1,9 @@
 <li>Order ID <%= @order.id %></li>
 <li>Customer Name <%= @order.customer.name %></li>
 <li>Order Total <%= @order.total %></li>
+
+<% @order.order_items.each do |order_item| %>
+	<%= order_item.product.name %> / <%= order_item.quantity %>
+<% end %>
+
+
