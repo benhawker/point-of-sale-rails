@@ -11,26 +11,21 @@ class OrdersController < ApplicationController
 
 	def new
 		@order = Order.new
-    @order.order_items.build
+    3.times { @order.order_items.build }
 	end
 
-	def create
-		@order = Order.new(order_params)
+  def create
+    @order = Order.new(order_params)
     @order.customer = Customer.find(params[:order][:customer])
-    
-    if params[:add_order_item]
-      @order.order_items.build
+    if @order.save
+      @order.calculate_total
+      flash[:notices] = ['Order created successfully']
+      redirect_to orders_path
     else
-
-  		if @order.save
-        @order.calculate_total
-  			flash[:notices] = ['Order created successfully']
-        redirect_to orders_path
-      else
-        render 'new'
-      end
+      flash[:notices] = ['Order was not created. Please try again']
+      render 'new'
     end
-	end
+  end
 
 	def show
 		@order = Order.find(params[:id])

@@ -9,7 +9,6 @@ class Order < ActiveRecord::Base
  	# Association validations
   validates_presence_of :customer
 
-
 	def calculate_total
 		total = 0.0
 		self.order_items.each do |order_item|

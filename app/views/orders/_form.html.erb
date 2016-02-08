@@ -1,20 +1,12 @@
 <%= form_for @order, html: {multipart: true} do |f| %>
-	<%= f.select :customer, Customer.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Every order needs a customer!"}, class: "form-control" %>
+	<%= f.select :customer, Customer.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Select Customer"}, class: "form-control" %>
 
 	<div id="items-div" class='form-group'>
     <%= f.fields_for :order_items do |order_item| %>
-    	<div id="single-item-div">
-      	<%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "product-select" %>
-      	<%= order_item.select :quantity, options_for_select(0..10), { prompt: "Quantity" }, id: "quantity-select" %>
-     	</div>
+    	<%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "product-select" %>
+    	<%= order_item.select :quantity, options_for_select(0..10), { prompt: "Quantity" }, id: "quantity-select" %>
     <% end %>
   </div>
-  <%= f.submit 'Add another item', name: "add_order_item" %>
 
   <%= f.submit "Create Order", class: "btn btn-primary" %>
 <% end %>
-
-___
-
-<button class="btn btn-default" id="addNewItem">Add Product</button> 
-<button class="btn btn-default" id="deleteLastItem">Delete Last Product</button>

@@ -1,6 +1,6 @@
 <% if @categories.any? %>
 	<% @categories.each do |category| %>
-		<%= link_to "#{category.name}", admin_category_path(category), class: "something" %>
+		<%= link_to "#{category.name}", category_path(category), class: "something" %>
 	<% end %>
 <% else %>
 		<p>No categories yet</p>
