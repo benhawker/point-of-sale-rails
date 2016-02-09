@@ -29,6 +29,11 @@ class OrdersController < ApplicationController
 
 	def show
 		@order = Order.find(params[:id])
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js # show.js.erb
+      @order.calculate_total
+    end
 	end
 
 	def edit

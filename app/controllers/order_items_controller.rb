@@ -31,6 +31,7 @@ class OrderItemsController < ApplicationController
           redirect_to order_path(@order)
         end
         format.js
+        @order.calculate_total
 
       else format.html
   			render 'new'
@@ -40,15 +41,40 @@ class OrderItemsController < ApplicationController
 
   def destroy
     @order_item = @order.order_items.find(params[:id])
-    if @order_item.destroy
-      @order.calculate_total
-      flash[:notices] = ['Order Item was successfully removed']
-      redirect_to order_path(@order)
-    else
-      flash[:alerts] = ['No way! Order Item was not removed.']
-      redirect_to order_path(@order)
+    respond_to do |format|
+      if @order_item.destroy
+        format.html do
+          @order.calculate_total
+          flash[:notices] = ["Order item successfully removed"]
+          redirect_to order_path(@order)
+        end
+        format.js
+        @order.calculate_total
+
+      else format.html
+        render 'new'
+      end
     end
   end
+
+  # def destroy
+  #   @order_item = @order.order_items.find(params[:id])
+    
+  #   respond_to do |format|
+  #   if @order_item.destroy
+  #     format.html do
+  #       @order.calculate_total
+  #       flash[:notices] = ['Order Item was successfully removed']
+  #       redirect_to order_path(@order)
+  #     end
+  #     format.js
+  #     @order.calculate_total
+
+  #   else
+  #     flash[:alerts] = ['No way! Order Item was not removed.']
+  #     redirect_to order_path(@order)
+  #   end
+  # end
 
   private
 

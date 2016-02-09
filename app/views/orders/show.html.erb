@@ -1,15 +1,22 @@
 <li>Order ID <%= @order.id %></li>
 <li>Customer Name <%= @order.customer.name %></li>
-<li>Order Total <%= @order.total %></li>
+<li>Order Total: 
+	<span class="<%= @order.id %>_total"><%= @order.total %></span>
+</li>
+
 <br>
-<li>Number of Items in the order: <%= @order.order_items.count %></li>
+
+<li>Number of Items in the order: 
+	<span class="<%= @order.id %>_order_items_count"><%= @order.order_items.count %></span>
+</li>
 
 <ul>
 <% @order.order_items.each do |order_item| %>
 	<li>
 		Product: <%= order_item.product.name %> / Quantity: <span class="<%= order_item.id %>_quantity"><%= order_item.quantity %></span>
 
-		<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete %>
+		<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete, remote: true, class: 'order-item-remove' %>
+		
 		<%= link_to "Edit", edit_order_order_item_path(@order, order_item), class: "edit-order-item" %>
 		
 		<%= form_for [@order, order_item], remote: true, method: :put do |f| %>
