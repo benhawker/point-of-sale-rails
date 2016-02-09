@@ -23,12 +23,18 @@ class OrderItemsController < ApplicationController
 
   def update
     @order_item = @order.order_items.find(params[:id])
-    if @order_item.update(order_items_params)
-      @order.calculate_total
-    	flash[:notices] = ["Order item successfully updated"]
-      redirect_to order_path(@order)
-    else
-			render 'new'
+    respond_to do |format|
+      if @order_item.update(order_items_params)
+        format.html do
+          @order.calculate_total
+          flash[:notices] = ["Order item successfully updated"]
+          redirect_to order_path(@order)
+        end
+        format.js
+
+      else format.html
+  			render 'new'
+      end
     end
   end
 
