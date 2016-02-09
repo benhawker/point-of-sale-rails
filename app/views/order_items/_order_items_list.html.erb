@@ -1,0 +1,14 @@
+<% @order.order_items.each do |order_item| %>
+		<li>
+			Product: <%= order_item.product.name %> / Quantity: <span class="<%= order_item.id %>_quantity"><%= order_item.quantity %></span>
+
+			<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete, remote: true, class: 'order-item-remove' %>
+			<%= link_to "Edit", edit_order_order_item_path(@order, order_item), class: "edit-order-item" %>
+			
+			<%= form_for [@order, order_item], remote: true, method: :put do |f| %>
+	    	<%= f.text_field :quantity, value: order_item.quantity %>
+	    	<%= f.submit "Update!" %>
+	    <% end %>
+
+		</li>
+	<% end %>

@@ -43,12 +43,12 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     respond_to do |format|
       if @order_item.destroy
-        format.html do
-          @order.calculate_total
-          flash[:notices] = ["Order item successfully removed"]
-          redirect_to order_path(@order)
-        end
-        format.js
+        # format.html do
+        #   @order.calculate_total
+        #   flash[:notices] = ["Order item successfully removed"]
+        #   redirect_to order_path(@order)
+        # end
+        format.js {}
         @order.calculate_total
 
       else format.html
