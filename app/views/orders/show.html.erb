@@ -1,13 +1,17 @@
 <li>Order ID <%= @order.id %></li>
 <li>Customer Name <%= @order.customer.name %></li>
+<li>Customer Name <%= @order.customer.email %></li>
+
 <li>Order Total: 
 	<span class="<%= @order.id %>_total"><%= @order.total %></span>
 </li>
 
-<br>
+<li>Number of unique items in order: 
+	<span class="<%= @order.id %>unique_order_items_count"><%= @order.order_items.count %></span>
+</li>
 
-<li>Number of Items in the order: 
-	<span class="<%= @order.id %>_order_items_count"><%= @order.order_items.count %></span>
+<li>Total number of items in order: 
+	<span class="<%= @order.id %>total_order_items_count"><%= @order.total_items %></span>
 </li>
 
 <ul id="order-item-list">
@@ -16,5 +20,7 @@
 
 <%= link_to "Edit Order", edit_order_path %>
 <%= link_to "Add Another Item To Order", new_order_order_item_path(@order) %>
+
+<%= link_to "Create Invoice", new_invoice_path %>
 
 

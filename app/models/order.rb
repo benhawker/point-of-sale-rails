@@ -3,6 +3,7 @@ class Order < ActiveRecord::Base
 	has_many :payments
 	has_many :order_items
 	has_many :products, through: :order_items
+	has_one :invoice
 
 	accepts_nested_attributes_for :order_items
 
@@ -20,6 +21,15 @@ class Order < ActiveRecord::Base
 
 	def update_total(total)
 		self.update(total: total)
+	end
+
+	def total_items
+		total = 0
+		self.order_items.each do |order_item|
+			total += order_item.quantity
+		end
+
+		return total
 	end
 
 end

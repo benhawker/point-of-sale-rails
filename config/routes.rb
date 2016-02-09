@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :order_items
   end
 
+  resources :invoices
+
   get "welcome/index"
   root :to => 'welcome#index'
 
