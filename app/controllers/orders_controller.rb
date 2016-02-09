@@ -39,6 +39,7 @@ class OrdersController < ApplicationController
 		@order = Order.find(params[:id])
     @order.customer = Customer.find(params[:order][:customer])
 		if @order.update(order_params)
+      @order.calculate_total
       flash[:notices] = ["Order was successfully updated"]
       render 'show'
     else

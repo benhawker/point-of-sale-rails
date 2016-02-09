@@ -7,4 +7,11 @@ class OrderItem < ActiveRecord::Base
 
   # Attribute validations
   validates_presence_of :quantity, message: "Please enter a quantity"
+
+
+	def calculate_total
+		total = 0.0
+		total = self.product.price * self.quantity
+	end
+
 end

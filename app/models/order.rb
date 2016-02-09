@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
 	accepts_nested_attributes_for :order_items
 
  	# Association validations
-  validates_presence_of :customer
+  # validates_presence_of :customer
 
 	def calculate_total
 		total = 0.0
