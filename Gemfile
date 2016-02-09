@@ -11,6 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'will_paginate'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -26,7 +28,6 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard-rspec', require: false
   gem 'launchy'
-  gem 'factory_girl_rails'
   gem 'coveralls', require: false
 end
 

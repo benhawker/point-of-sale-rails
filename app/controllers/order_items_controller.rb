@@ -9,6 +9,7 @@ class OrderItemsController < ApplicationController
   def create
     @order_item = @order.order_items.new(order_items_params)
     if @order_item.save(order_items_params)
+      @order.calculate_total
     	flash[:notices] = ["New order item successfully created"]
       redirect_to order_path(@order)
     else
@@ -23,6 +24,7 @@ class OrderItemsController < ApplicationController
   def update
     @order_item = @order.order_items.find(params[:id])
     if @order_item.update(order_items_params)
+      @order.calculate_total
     	flash[:notices] = ["Order item successfully updated"]
       redirect_to order_path(@order)
     else
