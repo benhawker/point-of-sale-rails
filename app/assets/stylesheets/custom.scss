@@ -1,0 +1,21 @@
+/**********************************************************
+  GLOBALS
+**********************************************************/
+
+p, a, li, h3, h4, h5, h6, input, label {
+  font-weight: 400;
+}
+
+/* Override Chrome autofill form input yellow color */
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+input:focus:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+
+/**********************************************************
+  BACKGROUND
+**********************************************************/
