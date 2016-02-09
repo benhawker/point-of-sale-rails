@@ -9,10 +9,12 @@
 	<li>
 		Product: <%= order_item.product.name %> / Quantity: <%= order_item.quantity %>
 		<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete %>
+		<%= link_to "Edit", edit_order_order_item_path(@order, order_item) %>
 	</li>
 <% end %>
 </ul>
 
 <%= link_to "Edit Order", edit_order_path %>
+<%= link_to "Add Another Item To Order", new_order_order_item_path(@order) %>
 
 
