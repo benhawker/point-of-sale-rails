@@ -1,5 +1,5 @@
 <% @order.order_items.each do |order_item| %>
-		<li>
+		<li class="individual-order-item">
 			Product: <span class="<%= order_item.id %>_product_name"><%= order_item.product.name %></span> / 
 			Quantity: <span class="<%= order_item.id %>_quantity"><%= order_item.quantity %></span>
 			<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete, remote: true, class: 'order-item-remove' %>
