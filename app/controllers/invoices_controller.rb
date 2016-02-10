@@ -1,7 +1,8 @@
 class InvoicesController < ApplicationController
 	
-	def show
-		@invoice = Invoice.find(params[:id])
-	end
+	def create
+    @order = Order.find(params[:order_id])
+    @invoice = InvoicePresenter.new(@order)
+  end
 
 end
