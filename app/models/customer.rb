@@ -1,5 +1,5 @@
 class Customer < ActiveRecord::Base
-	has_many :orders
+	has_many :orders, :inverse_of => :customer
 
   # Attribute validations
   validates_presence_of :name, message: "Please add a name."
