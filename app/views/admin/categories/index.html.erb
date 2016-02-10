@@ -5,3 +5,7 @@
 <% else %>
 		<p>No categories yet</p>
 <% end %>
+
+<%= link_to 'New Category', new_admin_category_path, remote: true %>
+
+<div id="category-form" style="display:none;"></div>
