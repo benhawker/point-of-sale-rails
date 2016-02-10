@@ -6,6 +6,7 @@ class Order < ActiveRecord::Base
 	has_one :invoice
 
 	accepts_nested_attributes_for :order_items, allow_destroy: true
+	accepts_nested_attributes_for :customer
 
  	# Association validations
   # validates_presence_of :customer

@@ -9,3 +9,6 @@ $(".<%= @order.id %>_total").html("<%= @order.total %>");
 
 //Update number of seperate order items in order
 $(".<%= @order.id %>unique_order_items_count").html("<%= @order.order_items.count %>");
+
+//Update number of total items in the order
+$(".<%= @order.id %>total_order_items_count").html("<%= @order.total_items %>");

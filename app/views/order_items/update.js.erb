@@ -1,6 +1,9 @@
 //Update each order item quantity
 $(".<%= @order_item.id %>_quantity").html("<%= @order_item.quantity %>");
 
+//Update order item line total 
+$(".<%= @order_item.id %>_line_total").html("<%= @order_item.calculate_total %>");
+
 //Update each order item product name
 $(".<%= @order_item.id %>_product_name").html("<%= @order_item.product.name %>");
 
