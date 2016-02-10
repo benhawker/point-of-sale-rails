@@ -5,3 +5,18 @@
 <% else %>
 		<p>No customers yet</p>
 <% end %>
+
+<%= link_to 'New Customer', new_customer_path, remote: true %>
+
+<div id="customer-form" style="display:none;"></div>
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1" id="customers">
+  <% if @customers.any? %>
+	<% @customers.each do |customer| %>
+		<%= link_to "#{customer.name}", customer_path(customer), class: "something" %>
+	<% end %>
+<% else %>
+		<p>No customers yet</p>
+<% end %></div>
+</div>
