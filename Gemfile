@@ -13,7 +13,6 @@ gem 'will_paginate'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
-gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'responders', '~> 2.0'
 
@@ -39,6 +38,8 @@ group :test do
   gem 'capybara'
   gem 'shoulda-context'
   gem 'shoulda'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
