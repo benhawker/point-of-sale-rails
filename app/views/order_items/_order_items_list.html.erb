@@ -1,6 +1,6 @@
 <% @order.order_items.each do |order_item| %>
 		<li class="individual-order-item">
-			// Product: <span class="<%= order_item.id %>_product_name"><%= order_item.product.name %></span> / 
+			// Product: <span class="<%= order_item.id %>_product_name"><%= order_item.product.name %></span>
 			// Quantity: <span class="<%= order_item.id %>_quantity"><%= order_item.quantity %></span>
 			// Unit Price: <%= order_item.product.price %>
 			// Line Total: <span class="<%= order_item.id %>_line_total"><%= order_item.calculate_total %></span>
