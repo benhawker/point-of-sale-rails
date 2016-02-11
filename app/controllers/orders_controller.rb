@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  respond_to :html, :js
 
 	def index
 		@orders = Order.paginate(page: params[:page])
