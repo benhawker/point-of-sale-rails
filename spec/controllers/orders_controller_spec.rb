@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe OrdersController, type: :controller do
-  let(:order) {  Order.create }
+  let(:customer) { FactoryGirl.create(:customer) }
+  let(:order) { FactoryGirl.create(:order, customer: customer) }
 
 	describe "#show" do
     it "renders the show template" do
