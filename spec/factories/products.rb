@@ -1,8 +1,6 @@
 FactoryGirl.define do
   factory :product do
-  	category
-  	order
-
+  	association :category
   	name "Something"
   	description "Something"
   	price 5

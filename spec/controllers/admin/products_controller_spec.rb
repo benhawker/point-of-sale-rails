@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::ProductsController, type: :controller do
-  let(:product) { Product.create }
+  let(:product) { FactoryGirl.create(:product) }
 
 	describe "#show" do
     it "renders the show template" do

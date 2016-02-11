@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-	belongs_to :customer
+	belongs_to :customer, inverse_of: :orders
 	has_many :payments
 	has_many :order_items, inverse_of: :order, dependent: :destroy
 	has_many :products, through: :order_items
@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
 	accepts_nested_attributes_for :customer
 
  	# Association validations
-  # validates_presence_of :customer
+  # validates_presence_of :customer ##Inverse of vs. validates presence???
 
 	def calculate_total
 		total = 0.0

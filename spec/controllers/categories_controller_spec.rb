@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Admin::CategoriesController, type: :controller do
-  let(:category) { Category.create }
+  let(:category) { FactoryGirl.create(:category) }
 
 	describe "#show" do
     it "renders the show template" do
