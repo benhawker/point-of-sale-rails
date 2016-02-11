@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
 
 	def new
 		@order = Order.new
-    3.times { @order.order_items.build }
+    @order.order_items.build
 	end
 
   def create
