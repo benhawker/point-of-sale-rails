@@ -1,0 +1,9 @@
+<% if @orders.any? %>
+	<% @orders.each do |order| %>
+		<%= link_to "Show #{order.id}", order_path(order), class: "something" %>
+		<%= link_to "Delete #{order.id}", order_path(order), method: :delete, class: "something" %>
+		<%= link_to "Delete order with ajax", order_path(order), remote: true, method: :delete,  data: { confirm: 'Are you sure?' } %>
+	<% end %> 
+<% else %>
+	<p>No orders yet</p>
+<% end %>
