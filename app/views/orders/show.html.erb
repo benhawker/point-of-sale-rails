@@ -20,7 +20,7 @@
 </ul>
 
 <%= link_to "Edit Order", edit_order_path %>
-<%= link_to "Create Invoice", new_invoice_path %>
+<%= link_to "Create Invoice", new_invoice_path, remote: true %>
 <%= link_to 'add new item with ajax', new_order_order_item_path(@order), remote: true %>
 
 <div id="order-item-form" style="display:none;"></div>
