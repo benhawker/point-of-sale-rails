@@ -5,3 +5,7 @@
 <% else %>
 		<p>No orders yet</p>
 <% end %>
+
+<%= link_to 'New Order', new_order_path, remote: true %>
+
+<div id="order-form" style="display:none;"></div>
