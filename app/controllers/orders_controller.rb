@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  respond_to :html, :js
+  # respond_to :html, :js
 
 	def index
 		@orders = Order.paginate(page: params[:page])
@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
       @orders = Order.all.order('created_at DESC')
     end
   end
-
+  
 	def new
 		@order = Order.new
     @order.order_items.build
@@ -54,16 +54,19 @@ class OrdersController < ApplicationController
     end
   end
 
-	def destroy
-		@order = Order.find(params[:id])
-		if @order.destroy
-      flash[:notices] = ["Order was successfully deleted"]
-      redirect_to orders_path
-    else
-      flash[:notices] = ["Order could not be deleted"]
-      render Order_path(@order)
+  def destroy
+    @order = Order.find(params[:id])
+
+    respond_to do |format|
+      if @order.destroy 
+        format.js
+        format.html { redirect_to orders_path, notice: "Order was successfully deleted" }
+      else
+        format.js
+        format.html { render order_path(@order), notice: "Order could not be deleted" }
+      end
     end
-	end
+  end
 
   private
 
