@@ -1,0 +1,8 @@
+<% @category.products.each do |product| %>
+	<%= div_for product do %>
+		<%= product.name %> / <%= product.price %> / <%= product.in_stock %>
+		<%= link_to "Edit product", edit_admin_product_path(product) %>
+		<%= link_to "Edit product with ajax", edit_admin_product_path(product), remote: true %>
+		<div id="product-form" style="display:none;"></div>
+	<% end %>
+<% end %>

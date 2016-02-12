@@ -1,0 +1,6 @@
+<!-- To be completed -->
+<%= form_for [@product], html: {multipart: true} do |f| %>
+  <%= f.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "product-select" %>
+  <%= f.select :quantity, options_for_select(1..10), { prompt: "Quantity" }, id: "quantity-select" %>
+  <%= f.submit "Add Item to Order", class: "btn btn-primary" %>
+<% end %>
