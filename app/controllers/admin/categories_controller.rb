@@ -1,4 +1,6 @@
 class Admin::CategoriesController < ApplicationController
+	respond_to :html
+  respond_to :js
 
 	def index
 		@categories = Category.paginate(page: params[:page])

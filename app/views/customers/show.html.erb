@@ -1,2 +1,6 @@
 <li>Customer Name <%= @customer.name %></li>
 <li>Customer Email <%= @customer.email %></li>
+
+<% @customer.orders.each do |order| %>
+	<li><%= order.id %> / <%= order.total %> / <%= link_to 'Link to order', order_path(order) %></li>
+<% end %>

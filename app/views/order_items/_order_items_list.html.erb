@@ -7,6 +7,6 @@
 
 			<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete, remote: true, class: 'order-item-remove' %>
 			
-			<%= render 'order_items/nested_form', order_item: order_item%>
+			<%= render 'order_items/nested_form', order_item: order_item %>
 		</li>
 	<% end %>

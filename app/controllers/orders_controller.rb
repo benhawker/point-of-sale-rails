@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  # respond_to :html, :js
+  respond_to :html, :js
 
 	# def index
 	# 	@orders = Order.paginate(page: params[:page])
@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    respond_with(@orders)
   end
 
 	def new
@@ -24,8 +25,9 @@ class OrdersController < ApplicationController
     @order.customer = Customer.find(params[:order][:customer])
     if @order.save
       @order.calculate_total
-      flash[:notices] = ['Order created successfully']
-      redirect_to orders_path
+      respond_with(@order)
+      # flash[:notices] = ['Order created successfully']
+      # redirect_to orders_path
     else
       flash[:notices] = ['Order was not created. Please try again']
       render 'new'

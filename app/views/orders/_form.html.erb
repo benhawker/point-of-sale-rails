@@ -1,4 +1,4 @@
-<%= nested_form_for @order do |f| %>
+<%= nested_form_for @order, remote: true do |f| %>
 	<!-- To add free text input to create customer as an alternative to selecting existing -->
 	<%= f.select :customer, Customer.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Select Customer"}, class: "form-control" %>
 	<div id="items-div" class='form-group'>
