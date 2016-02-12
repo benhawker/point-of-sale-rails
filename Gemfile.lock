@@ -128,6 +128,7 @@ GEM
     minitest (5.8.4)
     multi_json (1.11.2)
     nenv (0.2.0)
+    nested_form (0.3.2)
     netrc (0.10.3)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -280,6 +281,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
+  nested_form
   pg
   poltergeist
   rails (= 4.2.4)

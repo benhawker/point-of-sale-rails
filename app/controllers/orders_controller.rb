@@ -1,15 +1,19 @@
 class OrdersController < ApplicationController
   # respond_to :html, :js
 
-	def index
-		@orders = Order.paginate(page: params[:page])
-    if params[:search]
-      @orders = Order.search(params[:search]).order("created_at DESC")
-    else
-      @orders = Order.all.order('created_at DESC')
-    end
+	# def index
+	# 	@orders = Order.paginate(page: params[:page])
+ #    if params[:search]
+ #      @orders = Order.search(params[:search]).order("created_at DESC")
+ #    else
+ #      @orders = Order.all.order('created_at DESC')
+ #    end
+ #  end
+
+  def index
+    @orders = Order.all
   end
-  
+
 	def new
 		@order = Order.new
     @order.order_items.build
@@ -56,6 +60,7 @@ class OrdersController < ApplicationController
 
   def destroy
     @order = Order.find(params[:id])
+    @orders = Order.all
 
     respond_to do |format|
       if @order.destroy 
