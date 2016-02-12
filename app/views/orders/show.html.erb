@@ -23,9 +23,5 @@
 <%= link_to "Edit Order", edit_order_path(@order) %>
 <%= link_to "Delete #{@order.id}", order_path(@order), method: :delete, class: "something" %>
 
-<%= link_to @order, remote: true, method: :delete,  data: { confirm: 'Are you sure?' } do %>
-  <button>Delete Order</button>
-<% end %>
-
 <%= link_to "Create Invoice", new_invoice_path, remote: true %>
 <%= link_to 'add new item with ajax', new_order_order_item_path(@order), remote: true %>
