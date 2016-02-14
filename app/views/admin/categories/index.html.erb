@@ -4,6 +4,8 @@
 		<li>
 			<%= link_to "#{category.name}", admin_category_path(category), class: "something" %>
 			<%= category.products.count %> product(s)
+			<%= link_to "Edit", edit_admin_category_path(category), remote: true %>
+			<div id="category-form" style="display:none;"></div>
 		</li>
 		<% end %>
 	</ul>
@@ -12,5 +14,3 @@
 <% end %>
 
 <%= link_to 'New Category', new_admin_category_path, remote: true %>
-
-<div id="category-form" style="display:none;"></div>
