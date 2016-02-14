@@ -1,4 +1,5 @@
 <li>Product Name: <%= @product.name %></li>
 <li>Category Name: <%= @product.category.name %></li>
+<div id="product-form" style="display:none;"></div>
 
-<%= link_to "Edit Product", edit_admin_product_path %>
+<%= link_to "Edit Product", edit_admin_product_path(@product), remote: true %>
