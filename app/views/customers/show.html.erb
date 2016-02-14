@@ -1,6 +1,13 @@
-<li>Customer Name <%= @customer.name %></li>
-<li>Customer Email <%= @customer.email %></li>
+<%= div_for @customer do %>
+	<div class="customer-details">
+		<li>Customer Name <%= @customer.name %></li>
+		<li>Customer Email <%= @customer.email %></li>
+	</div>
+	<div id="customer-form" style="display:none;"></div>
 
-<% @customer.orders.each do |order| %>
-	<li><%= order.id %> / <%= order.total %> / <%= link_to 'Link to order', order_path(order) %></li>
+	<% @customer.orders.each do |order| %>
+		<li><%= order.id %> / <%= order.total %> / <%= link_to 'Link to order', order_path(order) %></li>
+	<% end %>
 <% end %>
+
+<%= link_to "Edit", edit_customer_path(@customer), remote: true %>

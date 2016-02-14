@@ -1,6 +1,7 @@
 <% if @customers.any? %>
 	<% @customers.each do |customer| %>
-		<%= link_to "#{customer.name}", customer_path(customer), class: "something" %>
+		<%= render 'customer', customer: customer %>
+		<div id="customer-form" style="display:none;"></div>
 	<% end %>
 <% else %>
 		<p>No customers yet</p>
