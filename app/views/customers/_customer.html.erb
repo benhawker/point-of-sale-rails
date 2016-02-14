@@ -1,3 +1,6 @@
-<%= div_for customer do %>
-	<%= link_to "#{customer.name}", customer_path(customer), class: "something" %>
-<% end %>
+	<div class="customer-details">
+		<li>Customer Name <%= @customer.name %></li>
+		<li>Customer Email <%= @customer.email %></li>
+		<%= link_to "Edit", edit_customer_path(@customer), remote: true, class: "edit-customer-btn" %>
+	</div>
+<div id="customer-form" style="display:none;"></div>

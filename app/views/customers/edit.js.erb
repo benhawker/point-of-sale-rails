@@ -1,6 +1,5 @@
+$('.edit-customer-btn').hide();
 $('.customer-details').hide();
-$('#customer-form').html("<%= j (render 'form', submit_text: "Edit Customer") %>");
+$('#customer-form').html("<%= j (render 'form', customer: @customer, submit_text: "Update Customer") %>");
 $('#customer-form').slideDown(350);
-
-
 

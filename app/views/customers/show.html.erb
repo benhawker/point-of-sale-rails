@@ -1,18 +1,10 @@
 <%= div_for @customer do %>
-	<div class="customer-details">
-		<li>Customer Name <%= @customer.name %></li>
-		<li>Customer Email <%= @customer.email %></li>
-	</div>
-	<div id="customer-form" style="display:none;"></div>
+	<%= render 'customer', customer: @customer %>
 
 	<% @customer.orders.each do |order| %>
 		<%= div_for order do %>
-			<li><%= order.id %> / <%= order.total %> / <%= link_to 'Link to order', order_path(order) %> 
-			<%= link_to 'Show order summary with ajax', order_path(order), remote: true %></li>
+			<li><%= order.id %> / <%= order.total %> / <%= link_to 'Show order summary with ajax', order_path(order), remote: true %></li>
+			<div id="order-summary" style="display:none;"></div>
 		<% end %>
 	<% end %>
 <% end %>
-
-<div id="order-summary" style="display:none;"></div>
-
-<%= link_to "Edit", edit_customer_path(@customer), remote: true %>

@@ -1,11 +1,10 @@
 <% if @customers.any? %>
 	<% @customers.each do |customer| %>
-		<%= render 'customer', customer: customer %>
+		<%= render 'customer_summary', customer: customer %>
 	<% end %>
 <% else %>
 		<p>No customers yet</p>
 <% end %>
 
 <%= link_to 'New Customer', new_customer_path, remote: true %>
-
 <div id="customer-form" style="display:none;"></div>

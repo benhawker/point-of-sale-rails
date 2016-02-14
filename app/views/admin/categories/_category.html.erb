@@ -1,8 +1,9 @@
-<li>Category Name <%= @category.name %></li>
-<%= link_to "Edit Category", edit_admin_category_path(@category), remote: true %>
+<%= div_for @category do %>
+	<li>Category Name <%= @category.name %></li>
 
-<div class="category-products">
-	<% @category.products.each do |product| %>
-		<%= render 'admin/products/product', product: product %>
-	<% end %>
-</div>
+	<div class="category-products">
+		<% @category.products.each do |product| %>
+			<%= render 'admin/products/product', product: product %>
+		<% end %>
+	</div>
+<% end %>
