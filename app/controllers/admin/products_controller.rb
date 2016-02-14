@@ -1,7 +1,5 @@
 class Admin::ProductsController < ApplicationController
-  respond_to :html
-  respond_to :js
-
+  respond_to :html, :js
 
 	def index
 		@products = Product.paginate(page: params[:page])

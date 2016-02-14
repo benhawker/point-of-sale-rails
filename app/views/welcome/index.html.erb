@@ -1,13 +1,20 @@
 Take me to:
-
 <%= link_to "Show Categories", admin_categories_path %>
 <%= link_to "Show All Products", admin_products_path %>
 <%= link_to "Show Orders", orders_path %>
 <%= link_to "Show Customers", customers_path %>
+<hr>
+<%= link_to "New Order", new_order_path, remote: true %>
+<%= link_to "New Customer", new_customer_path, remote: true %>
+<hr>
+<h5>Admin</h5>
+<%= link_to "New Category", new_admin_category_path, remote: true %>
+<%= link_to "New Product", new_admin_product_path, remote: true %>
+<hr>
+<%= link_to "Admin Section", admin_welcome_index_path %>
 
 <hr>
-
-<%= link_to "New Category", new_admin_category_path %>
-<%= link_to "New Product", new_admin_product_path %>
-<%= link_to "New Order", new_order_path %>
-<%= link_to "New Customer", new_customer_path %>
+<div id="customer-form" style="display:none;"></div>
+<div id="order-form" style="display:none;"></div>
+<div id="product-form" style="display:none;"></div>
+<div id="category-form" style="display:none;"></div>
