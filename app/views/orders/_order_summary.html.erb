@@ -1,5 +1,6 @@
 <li>Order ID: <%= @order.id %></li>
 <li>Order Status: <%= @order.status.titleize %></li>
+<li>Order Customer: <%= link_to @order.customer.name, customer_path(@order.customer) %></li>
 
 <li>Order Total: 
 	<span class="<%= @order.id %>_total"><%= @order.total %></span>

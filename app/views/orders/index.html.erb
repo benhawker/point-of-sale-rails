@@ -1,5 +1,12 @@
 <div id="orders">
-	<%= render 'orders/index' %>
+	<% if @orders.any? %>
+		<% @orders.each do |order| %>
+			<%= link_to "Show #{order.id}", order_path(order), class: "something" %>
+			<%= link_to "Delete #{order.id}", order_path(order), method: :delete, class: "something" %>
+		<% end %> 
+	<% else %>
+		<p>No orders yet</p>
+	<% end %>
 </div>
 
 <%= link_to 'New Order', new_order_path, remote: true, id:"new-order-button"%>

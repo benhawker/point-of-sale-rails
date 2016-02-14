@@ -1,8 +1,8 @@
-<%= render 'order_summary' %>
+<%= render 'order_summary', order_item: @order_item %>
 
 <ul id="order-item-list">
 	<% @order.order_items.each do |order_item| %>
-		<%= render 'order_items/order_item', order_item: order_item %>
+		<%= render 'order_items/nested_form', order_item: order_item %>
 	<% end %>
 </ul>
 <div id="order-item-form" style="display:none;"></div>
