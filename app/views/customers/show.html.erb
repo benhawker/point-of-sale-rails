@@ -6,8 +6,13 @@
 	<div id="customer-form" style="display:none;"></div>
 
 	<% @customer.orders.each do |order| %>
-		<li><%= order.id %> / <%= order.total %> / <%= link_to 'Link to order', order_path(order) %></li>
+		<%= div_for order do %>
+			<li><%= order.id %> / <%= order.total %> / <%= link_to 'Link to order', order_path(order) %> 
+			<%= link_to 'Show order summary with ajax', order_path(order), remote: true %></li>
+		<% end %>
 	<% end %>
 <% end %>
+
+<div id="order-summary" style="display:none;"></div>
 
 <%= link_to "Edit", edit_customer_path(@customer), remote: true %>
