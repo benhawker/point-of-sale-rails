@@ -18,6 +18,10 @@ class Product < ActiveRecord::Base
     where("name ILIKE ?", "%#{search}%") 
   end
 
+  def in_stock_status
+    self.in_stock ? "In Stock" : "Out of Stock"
+  end
+
   ## Class Methods
 	def in_stock?
 		self.in_stock

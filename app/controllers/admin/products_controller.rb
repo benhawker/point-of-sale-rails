@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  layout 'admin'
   respond_to :html, :js
 
 	def index

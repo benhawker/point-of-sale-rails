@@ -1,4 +1,5 @@
 class Admin::CategoriesController < ApplicationController
+	layout 'admin'
 	respond_to :html
   respond_to :js
 

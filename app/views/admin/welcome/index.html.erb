@@ -1,19 +1,22 @@
-Admin Section.
+<h2 class='admin-title'>Admin area</h2>
 <hr>
 
-Take me to:
-<hr>
+<h4>Weekly Stats</h4>
 
-<%= link_to "Show Categories", admin_categories_path %>
-<%= link_to "Show All Products", admin_products_path %>
-<%= link_to "Show Orders", orders_path %>
-<%= link_to "Show Customers", customers_path %>
+<p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
 
 <hr>
 
-<%= link_to "New Category", new_admin_category_path %>
-<%= link_to "New Product", new_admin_product_path, remote: true %>
-<%= link_to "New Order", new_order_path %>
-<%= link_to "New Customer", new_customer_path %>
+<section>
+	<button><%= link_to "New Category", new_admin_category_path, remote: true %></button>
+	<div id="category-form" style="display:none;"></div>
 
-<div id="product-form" style="display:none;"></div>
+	<hr>
+	
+	<button><%= link_to "New Product", new_admin_product_path, remote: true %></button>
+	<div id="product-form" style="display:none;"></div>
+</section>
+
+<hr>

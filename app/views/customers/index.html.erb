@@ -1,10 +1,42 @@
+<div class='new-right'>
+	<button><%= link_to 'New Customer', new_customer_path, remote: true %></button>
+</div>
+
+<div id="customer-form" style="display:none;"></div>
+
+<hr>
+
+
 <% if @customers.any? %>
-	<% @customers.each do |customer| %>
-		<%= render 'customer_summary', customer: customer %>
-	<% end %>
+	<table class="table">
+		<thead>
+		  <tr>
+		    <th>Name</th>
+		    <th>Email</th>
+		    <th># of Orders</th>
+		    <th>Joined Date</th>
+		    <th>Type</th>
+		    <th>Actions</th>
+		  </tr>
+		</thead>
+		<tbody>
+			<% @customers.each do |customer| %>
+		    <tr>
+		      <td><%= link_to "#{customer.name}", customer_path(customer), class: "something" %></td>
+		      <td><%= customer.email %></td>
+		      <td><%= customer.orders.size %> </td>
+		      <td><%= customer.created_at.strftime("%b %d, %Y") %></td>
+		      <td><%= customer.type || "-" %></td>
+		      <td>
+		      	<%= link_to "Delete", customer_path(customer), method: :delete, class: "something" %> / <%= link_to "Edit", edit_customer_path(customer), class: "something" %>
+		      </td>
+		    </tr>
+		  <% end %>
+		</tbody>
+	</table>
+
 <% else %>
 		<p>No customers yet</p>
 <% end %>
 
-<%= link_to 'New Customer', new_customer_path, remote: true %>
-<div id="customer-form" style="display:none;"></div>
+

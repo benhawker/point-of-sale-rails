@@ -1,20 +1,19 @@
-Take me to:
-<%= link_to "Show Categories", admin_categories_path %>
-<%= link_to "Show All Products", admin_products_path %>
-<%= link_to "Show Orders", orders_path %>
-<%= link_to "Show Customers", customers_path %>
-<hr>
-<%= link_to "New Order", new_order_path, remote: true %>
-<%= link_to "New Customer", new_customer_path, remote: true %>
-<hr>
-<h5>Admin</h5>
-<%= link_to "New Category", new_admin_category_path, remote: true %>
-<%= link_to "New Product", new_admin_product_path, remote: true %>
-<hr>
-<%= link_to "Admin Section", admin_welcome_index_path %>
+<h4>Weekly Stats</h4>
+
+<p>
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+</p>
 
 <hr>
-<div id="customer-form" style="display:none;"></div>
-<div id="order-form" style="display:none;"></div>
-<div id="product-form" style="display:none;"></div>
-<div id="category-form" style="display:none;"></div>
+
+<section id="order">
+	<button><%= link_to "New Order", new_order_path, remote: true %></button>
+	<div id="order-form" style="display:none;"></div>
+	<hr>
+</section>
+
+<section id="customer">
+	<button><%= link_to "New Customer", new_customer_path, remote: true %></button>
+	<div id="customer-form" style="display:none;"></div>
+	<hr>
+</section>

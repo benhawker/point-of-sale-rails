@@ -1,6 +1,5 @@
 <%= div_for customer do %>
 	<div class="customer-details">
-		<li>Customer Name <%= customer.name %></li>
+		<%= link_to "#{customer.name}", customer_path(customer), class: "customer-show-link" %>
 	</div>
-	<%= link_to "View #{customer.name}", customer_path(customer), class: "customer-show-link" %>
 <% end %>

@@ -15,17 +15,124 @@ input:focus:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px white inset;
 }
 
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.centered {
+  text-align:center;
+}
+
+.new-right {
+	text-align: right;
+}
+
+
+.space-10 {
+  height: 10px;
+}
+
+.space-20 {
+  height: 20px;
+}
+
+.width-200 {
+  width:200px;
+  padding: 10px;
+  margin-bottom:10px;
+}
+
+.btn-border {
+  border: 1px solid #003366;
+    &:hover {
+    background-color: #003366;
+    color: white;
+    }
+}
+
 
 /**********************************************************
   BACKGROUND
 **********************************************************/
 
-#navbar {
-	background: red;
-	width: 100%;
+html { 
+  background: url(bg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-#footer {
-	background: red;
-	width: 100%;
+
+/**********************************************************
+  NAVBAR
+**********************************************************/
+
+.navbar-brand {
+  h1 {
+    color: #003366;
+    margin-top: 12px;
+    font-size: 1.3em;
+    font-weight: bold;
+    display: inline;
+  }
+}
+
+/**********************************************************
+  OTHER
+**********************************************************/
+
+.category-box {
+	border: 1px solid black;
+	display: inline-block;
+}
+
+
+#customer-form {
+	padding: 20px 0px;
+}
+
+#order-form {
+	padding: 20px 0px;
+}
+
+#product-form {
+	padding: 20px 0px;
+}
+
+#category-form {
+	padding: 20px 0px;
+}
+
+.right {
+	text-align: right;
+}
+
+button {
+  color: #ffffff;
+  padding: 10px 20px 10px 20px;
+  width: 200px;
+}
+
+
+button:hover {
+  color: #bccccb;
+  padding: 10px 20px 10px 20px;
+}
+
+#product-search-box {
+	width: 300px;
+}
+
+#search-form {
+	display: inline-block;
+}
+
+.admin-title {
+	text-align: center;
+}
+
+.bottom-padding {
+	padding-bottom: 5px;
 }

@@ -1,7 +1,14 @@
 <% if @categories.any? %>
-	<% @categories.each do |category| %>
-		<%= link_to "#{category.name}", category_path(category), class: "something" %>
-	<% end %>
+	<ul>
+		<% @categories.each do |category| %>
+			<section class='category-box'>
+				<%= link_to "#{category.name}", admin_category_path(category), class: "something" %>
+				<%= category.products.count %> product(s)
+				<%= link_to "Edit", edit_admin_category_path(category), remote: true %>
+				<div id="category-form" style="display:none;"></div>
+			</section>
+		<% end %>
+	</ul>
 <% else %>
 		<p>No categories yet</p>
 <% end %>
