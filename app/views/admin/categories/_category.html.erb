@@ -1,19 +1,11 @@
 <%= div_for @category do %>
-	<li>Category Name <%= @category.name %></li>
+	<li>Category Name: <%= @category.name %></li>
+	<li>Number of Products: <%= @category.products.size %></li>
 
 	<div class="category-products">
 		<% @category.products.each do |product| %>
-			<%= render 'admin/products/product', product: product %>
+			<%#= render 'admin/products/product', product: product %>
+			<%= product.name %> / <%= product.price %> / <%= product.in_stock_status %>
 		<% end %>
 	</div>
 <% end %>
-
-
-<li>Category Name <%= @category.name %></li>
-<li>Number of products <%= @category.products.size %></li>
-
-<% @category.products.each do |product| %>
-	<%= product.name %> / <%= product.price %> / <%= product.in_stock_status %>
-<% end %>
-
-

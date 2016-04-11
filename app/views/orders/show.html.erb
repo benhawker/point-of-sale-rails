@@ -7,5 +7,6 @@
 </ul>
 <div id="order-item-form" style="display:none;"></div>
 
+<button><%= link_to 'Add New Item', new_order_order_item_path(@order), remote: true %></button>
 <button><%= link_to "Delete Order ##{@order.id}", order_path(@order), method: :delete, class: "something" %></button>
 <button><%= link_to "Create PDF Invoice", new_invoice_path, remote: true %></button>

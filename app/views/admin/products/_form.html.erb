@@ -1,13 +1,9 @@
 <%= form_for([:admin, @product]) do |f| %> 
-	<%= f.select :category, Category.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Every product needs a category!"}, class: "form-control" %>
+	<%= f.select :category, Category.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Every product needs a category!"}, class: "form-control form-width" %>
 
-	<%= f.label :name %>
- 	<%= f.text_field :name, class: "form-control" %>
-
- 	<%= f.label :description %>
-  <%= f.text_field :description, class: "form-control" %>
-
-  <%= f.label :price %>
-  <%= f.text_field :price, class: "form-control" %>
-  <%= f.submit submit_text, class: "btn btn-primary" %>
+ 	<%= f.text_field :name, placeholder: "Name", class: "form-control form-width" %>
+  <%= f.text_field :description, placeholder: "Description", class: "form-control form-width" %>
+  <%= f.text_field :price, placeholder: "Price in USD", class: "form-control form-width" %>
+  <br>
+  <%= f.submit submit_text, class: "btn btn-primary form-width" %>
 <% end %>

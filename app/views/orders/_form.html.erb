@@ -1,11 +1,11 @@
 <%= nested_form_for @order do |f| %>
 	<!-- To add free text input to create customer as an alternative to selecting existing -->
-	<%= f.select :customer, Customer.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Select Customer"}, class: "form-control" %>
+	<%= f.select :customer, Customer.all.map{|c| ["#{c.name}", c.id] }, { :prompt => "Select Customer"}, class: "form-control form-width" %>
 	<div id="items-div" class='form-group'>
     <%= f.fields_for :order_items do |order_item| %>
-    	<%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "product-select" %>
+    	<%= order_item.select :product_id, Product.all.map{|p| ["#{p.name}", p.id] }, id: "product-select", class: "form-width" %>
     	<%= order_item.select :quantity, options_for_select(1..10), { prompt: "Quantity" }, id: "quantity-select" %>
-    	<%= order_item.link_to_remove "Remove Item" %>
+    	<%= order_item.link_to_remove "X" %>
     <% end %>
   </div>
 

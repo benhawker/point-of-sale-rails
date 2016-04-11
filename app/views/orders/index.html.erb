@@ -26,7 +26,7 @@
 			      <td><%= order.created_at.strftime("%b %d, %Y") %></td>
 			      <td><%= order.status.capitalize %></td>
 			      <td>
-			      	<%= link_to "Delete", order_path(order), method: :delete, class: "something" %> / <%= link_to "Edit", edit_order_path(order), class: "something" %>
+			      	<%= link_to "Delete", order_path(order), method: :delete, class: "something" %> / <%= link_to "Edit", order_path(order), class: "something" %>
 			      </td>
 			    </tr>
 			  <% end %>

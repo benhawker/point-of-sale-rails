@@ -28,7 +28,7 @@
 		      <td><%= customer.created_at.strftime("%b %d, %Y") %></td>
 		      <td><%= customer.type || "-" %></td>
 		      <td>
-		      	<%= link_to "Delete", customer_path(customer), method: :delete, class: "something" %> / <%= link_to "Edit", edit_customer_path(customer), class: "something" %>
+		      	<%= link_to "Delete", customer_path(customer), method: :delete, class: "something" %> / <%= link_to "Edit", customer_path(customer), class: "something" %>
 		      </td>
 		    </tr>
 		  <% end %>
