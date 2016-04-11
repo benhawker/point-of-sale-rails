@@ -148,6 +148,16 @@ button:hover {
 	background: #bccccb;
 }
 
+.details-box {
+	border: 1px solid black;
+}
+
+.no-bg-box {
+	border: 1px solid black;
+	padding: 2px 6px;
+	margin-bottom: 4px;
+}
+
 .order-summary li {
 	list-style-type: none;
 }
@@ -155,4 +165,12 @@ button:hover {
 .form-width {
 	width: 400px;
 	margin-bottom: 10px;
+}
+
+#order-item-list {
+	border: 1px solid black;
+}
+
+.customer-details li {
+	list-style-type: none;
 }

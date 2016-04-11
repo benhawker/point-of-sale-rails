@@ -1,8 +1,8 @@
 <li class="individual-order-item">
-	// Product: <span class="<%= order_item.id %>_product_name"><%= order_item.product.name %></span>
-	// Quantity: <span class="<%= order_item.id %>_quantity"><%= order_item.quantity %></span>
-	// Unit Price: <%= order_item.product.price %>
-	// Line Total: <span class="<%= order_item.id %>_line_total"><%= order_item.calculate_total %></span>
+	<div class="col-xs-4 details-box">Product: <span class="<%= order_item.id %>_product_name"><%= order_item.product.name %></span></div>
+	<div class="col-xs-4 details-box">Quantity: <span class="<%= order_item.id %>_quantity"><%= order_item.quantity %></span></div>
+	<div class="col-xs-2 details-box">Unit Price: <%= order_item.product.price %></div>
+	<div class="col-xs-2 details-box">Line Total: <span class="<%= order_item.id %>_line_total"><%= order_item.calculate_total %></span></div>
 
 	<%= link_to "Remove Item from Order", order_order_item_path(@order, order_item), method: :delete, remote: true, class: 'order-item-remove' %>
 	

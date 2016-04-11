@@ -21,19 +21,25 @@
 	<table class="table">
 		<thead>
 		  <tr>
+		  	<th>Thumbnail</th>
 		    <th>Product Title</th>
 		    <th>Category</th>
 		    <th>Price</th>
 		    <th>In Stock?</th>
+		    <th>Actions</th>
 		  </tr>
 		</thead>
 		<tbody>
 			<% @products.each do |product| %>
 		    <tr>
+		    	<td>...</td>
 					<td><%= link_to "#{product.name}", admin_product_path(product), class: "something" %></td>
 					<td><%= product.category.name %></td>
 					<td><%= number_to_currency(product.price) %></td>
 					<td><%= product.in_stock_status %></td>
+					<td>
+			      <%= link_to "Delete", admin_product_path(product), method: :delete, class: "something" %> / <%= link_to "Edit", admin_product_path(product), class: "something" %>
+			    </td>
 		    </tr>
 		  <% end %>
 		</tbody>

@@ -1,6 +1,9 @@
 	<div class="customer-details">
-		<li>Customer Name <%= @customer.name %></li>
-		<li>Customer Email <%= @customer.email %></li>
-		<%= link_to "Edit", edit_customer_path(@customer), remote: true, class: "edit-customer-btn" %>
+		<li>Name: <%= @customer.name %></li>
+		<li>Email: <%= @customer.email %></li>
+		<li>Total # of Orders: <%= @customer.orders.size %></li>
+		<%= link_to "Edit", edit_customer_path(@customer), remote: true, class: "edit-customer-btn right new-right" %>
 	</div>
 <div id="customer-form" style="display:none;"></div>
+
+<hr>
