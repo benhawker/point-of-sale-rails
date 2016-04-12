@@ -7,6 +7,9 @@ $(".<%= @order_item.id %>_line_total").html("<%= @order_item.calculate_total %>"
 //Update each order item product name
 $(".<%= @order_item.id %>_product_name").html("<%= @order_item.product.name %>");
 
+//Update each order item cost
+$(".<%= @order_item.id %>_unit_price").html("<%= @order_item.product.price %>");
+
 //Update order total
 $(".<%= @order.id %>_total").html("<%= @order.total %>");
 

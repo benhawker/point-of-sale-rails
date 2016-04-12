@@ -3,8 +3,8 @@
 
 	<% @customer.orders.each do |order| %>
 		<%= div_for order do %>
-			<li>
-				<%= link_to "Order #{order.id}" %> / 
+			<li class="customer-order">
+				<%= "Order #{order.id}" %> / 
 				<%= "#{order.order_items.size} Items" %> / 
 				<%= number_to_currency(order.total) %> /
 				<%= link_to 'Show Order Summary', order_path(order), remote: true %>

@@ -1,11 +1,14 @@
 <%= div_for @category do %>
-	<li>Category Name: <%= @category.name %></li>
-	<li>Number of Products: <%= @category.products.size %></li>
+	<%= @category.name %> / <%= pluralize(@category.products.size, 'product') %>
+	<%= link_to "Edit Category", edit_admin_category_path(@category), remote: true %>
+		<div id="category-form" style="display:none;"></div>
 
+	<hr>
 	<div class="category-products">
-		<% @category.products.each do |product| %>
-			<%#= render 'admin/products/product', product: product %>
-			<%= product.name %> / <%= product.price %> / <%= product.in_stock_status %>
+		<% @category.products.each_with_index do |product, index| %>
+			<li class="no-style">
+				<%= index + 1 %>. <%= link_to "#{product.name}", admin_product_path(product) %> / <%= number_to_currency(product.price) %> / <%= product.in_stock_status %>
+			</li>
 		<% end %>
 	</div>
 <% end %>

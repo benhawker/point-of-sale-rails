@@ -33,4 +33,8 @@ class Order < ActiveRecord::Base
 		return total
 	end
 
+	def invoice_created
+		self.invoice ? "Yes" : "No"
+	end
+
 end

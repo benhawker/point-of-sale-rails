@@ -3,16 +3,12 @@
 </div>
 
 <hr>
-
 <% if @categories.any? %>
 	<ul>
-		<% @categories.each do |category| %>
-			<section class='category-box'>
-				<%= link_to "#{category.name}", admin_category_path(category), class: "something" %>
-				<%= category.products.count %> product(s)
-				<%= link_to "Edit", edit_admin_category_path(category), remote: true %>
-				<div id="category-form" style="display:none;"></div>
-			</section>
+		<% @categories.each_with_index do |category, index| %>
+			<li class="no-style">
+				<%= index + 1 %>. <%= link_to "#{category.name}", admin_category_path(category), class: "something" %>
+			</li>
 		<% end %>
 	</ul>
 <% else %>

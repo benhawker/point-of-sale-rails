@@ -1,2 +1,3 @@
-<li>Product Name <%= @product.name %></li>
-<li>Product Name <%= @product.category.name %></li>
+<%= div_for @product do %>
+	<%= @product.name %> / <%= number_to_currency(@product.price) %> / <%= @product.in_stock_status %>
+<% end %>
