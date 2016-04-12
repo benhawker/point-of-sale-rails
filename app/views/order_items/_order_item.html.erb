@@ -1,10 +1,11 @@
-<li class="individual-order-item">
-	<span class="<%= order_item.id %>_product_name"><%= order_item.product.name %></span>
+<li class="individual-order-item no-style">
+	<b><span class="<%= order_item.id %>_product_name"><%= order_item.product.name %></span></b>
 	/ Quantity: <span class="<%= order_item.id %>_quantity"><%= order_item.quantity %></span>
-	/ Unit Price: <span class="<%= order_item.id %>_unit_price"><%= order_item.product.price %></span>
-	/ Line Total: <span class="<%= order_item.id %>_line_total"><%= order_item.calculate_total %></span>
-
-	<button><%= link_to "Remove Item", order_order_item_path(@order, order_item), method: :delete, remote: true, class: 'order-item-remove' %></button>
+	/ Unit Price: <span class="<%= order_item.id %>_unit_price"><%= number_to_currency(order_item.product.price) %></span>
+	/ Line Total: <span class="<%= order_item.id %>_line_total"><%= number_to_currency(order_item.calculate_total) %></span>
+	/ <%= link_to "Remove Item", order_order_item_path(@order, order_item), method: :delete, remote: true, class: 'order-item-remove' %>
 	
-	<%= render 'order_items/nested_form', order_item: order_item %>
+	<div class='order-items-nested-form'>
+		<%= render 'order_items/nested_form', order_item: order_item %>
+	</div>
 </li>
