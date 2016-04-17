@@ -11,8 +11,6 @@ feature "Products" do
 	it 'can create a new product', js: true do
 	  visit root_path
 	  click_link 'New Product'
-	  p Category.all
-
 	  fill_in 'product[name]', with: "My new product"
 	  fill_in 'product[description]',with: "My new product description"
 	  fill_in 'product[price]',with: "1000"
