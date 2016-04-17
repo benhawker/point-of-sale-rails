@@ -8,5 +8,5 @@
 <div id="order-item-form" style="display:none;"></div>
 
 <%= link_to "Delete #{@order.id}", order_path(@order), method: :delete, class: "something" %>
-<%= link_to 'add new item with ajax', new_order_order_item_path(@order), remote: true %>
+<%= link_to 'Add New Item', new_order_order_item_path(@order), remote: true %>
 <%= link_to "Create Invoice", new_invoice_path, remote: true %>
