@@ -6,10 +6,10 @@ class OrdersController < ApplicationController
     respond_with(@orders)
   end
 
-	def new
-		@order = Order.new
+  def new
+    @order = Order.new
     @order.order_items.build
-	end
+  end
 
   def create
     @order = Order.new(order_params)
@@ -23,23 +23,23 @@ class OrdersController < ApplicationController
     end
   end
 
-	def show
-		@order = Order.find(params[:id])
+  def show
+    @order = Order.find(params[:id])
     respond_to do |format|
       format.html # show.html.erb
       format.js # show.js.erb
       @order.calculate_total
     end
-	end
+  end
 
-	def edit
-		@order = Order.find(params[:id])
-	end
+  def edit
+    @order = Order.find(params[:id])
+  end
 
-	def update
-		@order = Order.find(params[:id])
+  def update
+    @order = Order.find(params[:id])
     @order.customer = Customer.find(params[:order][:customer])
-		if @order.update(order_params)
+    if @order.update(order_params)
       @order.calculate_total
       flash[:notices] = ["Order was successfully updated"]
       render 'show'
