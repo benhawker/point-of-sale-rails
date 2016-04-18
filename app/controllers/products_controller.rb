@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
-	def index
-		@products = Product.paginate(page: params[:page])
+  def index
+    @products = Product.paginate(page: params[:page])
     if params[:search]
       @products = Product.search(params[:search]).order("created_at DESC")
     else
@@ -9,12 +9,12 @@ class ProductsController < ApplicationController
     end
   end
 
-	def show
-		@product = Product.find(params[:id])
-	end
+  def show
+    @product = Product.find(params[:id])
+  end
 
-	def edit
-		@product = Product.find(params[:id])
-	end
+  def edit
+    @product = Product.find(params[:id])
+  end
 
 end

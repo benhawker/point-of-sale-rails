@@ -1,5 +1,5 @@
 <div class='new-right'>
-	<button><%= link_to 'New Product', new_admin_product_path, remote: true %>
+  <button><%= link_to 'New Product', new_admin_product_path, remote: true %>
 </div>
 
 <div id="product-form" style="display:none;"></div>
@@ -7,44 +7,44 @@
 <hr>
 
 <section>
-	<%= form_tag(admin_products_path, :method => "get", id: "search-form") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Search Products", id:"product-search-box" %>
-		<%= submit_tag "Search" %>
-	<% end %>
+  <%= form_tag(admin_products_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Products", id:"product-search-box" %>
+    <%= submit_tag "Search" %>
+  <% end %>
 
-	<%= link_to "Reset", admin_products_path, :method => :get, class:"pull-right" %>
+  <%= link_to "Reset", admin_products_path, :method => :get, class:"pull-right" %>
 </section>
 
 <hr>
 
 <% if @products.any? %>
-	<table class="table">
-		<thead>
-		  <tr>
-		  	<th>Thumbnail</th>
-		    <th>Product Title</th>
-		    <th>Category</th>
-		    <th>Price</th>
-		    <th>In Stock?</th>
-		    <th>Actions</th>
-		  </tr>
-		</thead>
-		<tbody>
-			<% @products.each do |product| %>
-		    <tr>
-		    	<td>...</td>
-					<td><%= link_to "#{product.name}", admin_product_path(product), class: "something" %></td>
-					<td><%= product.category.name %></td>
-					<td><%= number_to_currency(product.price) %></td>
-					<td><%= product.in_stock_status %></td>
-					<td>
-			      <%= link_to "Delete", admin_product_path(product), method: :delete, class: "something" %> / <%= link_to "Edit", admin_product_path(product), class: "something" %>
-			    </td>
-		    </tr>
-		  <% end %>
-		</tbody>
-	</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Thumbnail</th>
+        <th>Product Title</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>In Stock?</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>...</td>
+          <td><%= link_to "#{product.name}", admin_product_path(product), class: "something" %></td>
+          <td><%= product.category.name %></td>
+          <td><%= number_to_currency(product.price) %></td>
+          <td><%= product.in_stock_status %></td>
+          <td>
+            <%= link_to "Delete", admin_product_path(product), method: :delete, class: "something" %> / <%= link_to "Edit", admin_product_path(product), class: "something" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <% else %>
-	<p>No products yet</p>
+  <p>No products yet</p>
 <% end %>

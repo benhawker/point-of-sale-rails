@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
 
-	before_action :get_order
+  before_action :get_order
 
   def new
     @order_item = OrderItem.new
@@ -10,10 +10,10 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_items_params)
     if @order_item.save(order_items_params)
       @order.calculate_total
-    	flash[:notices] = ["New order item successfully created"]
+      flash[:notices] = ["New order item successfully created"]
       redirect_to order_path(@order)
     else
-			render 'new'
+      render 'new'
     end
   end
 
@@ -34,7 +34,7 @@ class OrderItemsController < ApplicationController
         @order.calculate_total
 
       else format.html
-  			render 'new'
+        render 'new'
       end
     end
   end
@@ -60,11 +60,11 @@ class OrderItemsController < ApplicationController
   private
 
   def order_items_params
-  	params.require(:order_item).permit(:product_id, :quantity)
+    params.require(:order_item).permit(:product_id, :quantity)
   end
 
   def get_order
-		@order = Order.find(params[:order_id])
+    @order = Order.find(params[:order_id])
   end
 
 end

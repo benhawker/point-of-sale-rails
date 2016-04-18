@@ -1,16 +1,16 @@
 <div class='new-right'>
-	<button><%= link_to 'New Category', new_admin_category_path, remote: true %></button>
+  <button><%= link_to 'New Category', new_admin_category_path, remote: true %></button>
 </div>
 
 <hr>
 <% if @categories.any? %>
-	<ul>
-		<% @categories.each_with_index do |category, index| %>
-			<li class="no-style">
-				<%= index + 1 %>. <%= link_to "#{category.name}", admin_category_path(category), class: "something" %>
-			</li>
-		<% end %>
-	</ul>
+  <ul>
+    <% @categories.each_with_index do |category, index| %>
+      <li class="no-style">
+        <%= index + 1 %>. <%= link_to "#{category.name}", admin_category_path(category), class: "something" %>
+      </li>
+    <% end %>
+  </ul>
 <% else %>
-		<p>No categories yet</p>
+    <p>No categories yet</p>
 <% end %>

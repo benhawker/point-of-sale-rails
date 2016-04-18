@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::CategoriesController, type: :controller do
   let(:category) { FactoryGirl.create(:category) }
 
-	describe "#show" do
+  describe "#show" do
     it "renders the show template" do
       get :show, {id: category.id}
       expect(response).to render_template(:show)

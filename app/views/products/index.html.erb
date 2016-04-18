@@ -1,38 +1,38 @@
 <section>
-	<%= form_tag(admin_products_path, :method => "get", id: "search-form") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Search Products", id:"product-search-box" %>
-		<%= submit_tag "Search" %>
-	<% end %>
+  <%= form_tag(admin_products_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Products", id:"product-search-box" %>
+    <%= submit_tag "Search" %>
+  <% end %>
 
-	<%= link_to "Reset", products_path, :method => :get, class:"pull-right" %>
+  <%= link_to "Reset", products_path, :method => :get, class:"pull-right" %>
 </section>
 
 <hr>
 
 <% if @products.any? %>
-	<table class="table">
-		<thead>
-		  <tr>
-		  	<th>Picture</th>
-		    <th>Product Title</th>
-		    <th>Category</th>
-		    <th>Price</th>
-		    <th>In Stock?</th>
-		  </tr>
-		</thead>
-		<tbody>
-			<% @products.each do |product| %>
-		    <tr>
-		    	<td>...</td>
-					<td><%= link_to "#{product.name}", admin_product_path(product), class: "something" %></td>
-					<td><%= product.category.name %></td>
-					<td><%= number_to_currency(product.price) %></td>
-					<td><%= product.in_stock_status %></td>
-		    </tr>
-		  <% end %>
-		</tbody>
-	</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Product Title</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>In Stock?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td>...</td>
+          <td><%= link_to "#{product.name}", admin_product_path(product), class: "something" %></td>
+          <td><%= product.category.name %></td>
+          <td><%= number_to_currency(product.price) %></td>
+          <td><%= product.in_stock_status %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
 <% else %>
-	<p>No products yet</p>
+  <p>No products yet</p>
 <% end %>

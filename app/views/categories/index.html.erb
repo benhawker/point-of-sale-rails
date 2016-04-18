@@ -1,11 +1,11 @@
 <% if @categories.any? %>
-	<ul>
-		<% @categories.each_with_index do |category, index| %>
-			<li class="no-style">
-				<%= index + 1 %>. <%= link_to "#{category.name}", category_path(category), class: "something" %>
-			</li>
-		<% end %>
-	</ul>
+  <ul>
+    <% @categories.each_with_index do |category, index| %>
+      <li class="no-style">
+        <%= index + 1 %>. <%= link_to "#{category.name}", category_path(category), class: "something" %>
+      </li>
+    <% end %>
+  </ul>
 <% else %>
-		<p>No categories yet</p>
+    <p>No categories yet</p>
 <% end %>

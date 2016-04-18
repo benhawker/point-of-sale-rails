@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Order, type: :model do
-	it { should belong_to(:customer) }
+  it { should belong_to(:customer) }
   it { should have_many(:payments) }
   it { should have_many(:order_items) }
   it { should have_many(:products).through(:order_items) }
@@ -11,15 +11,15 @@ RSpec.describe Order, type: :model do
 
 
   describe "#calculate_total" do
-  	it "calculates the correct total" do
+    it "calculates the correct total" do
 
-  	end
+    end
   end
 
   describe "#update_total" do
-  	it "updates the order total" do
+    it "updates the order total" do
 
-  	end
+    end
   end
 
 end

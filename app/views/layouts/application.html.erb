@@ -7,8 +7,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <% if content_for?(:javascripts) %>
-  	yield(:javascripts)
-	<% end %>
+    yield(:javascripts)
+  <% end %>
 </head>
 <body>
 
@@ -29,7 +29,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-        	<%= render 'layouts/nav_links' %>
+          <%= render 'layouts/nav_links' %>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -38,7 +38,7 @@
 <%= render 'layouts/flash_messages' %>
 
 <div class="container">
-	<%= yield %>
+  <%= yield %>
 </div>
 
 </body>

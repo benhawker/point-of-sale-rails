@@ -1,6 +1,6 @@
 <%= div_for product do %>
-	<%= product.name %> / <%= number_to_currency(product.price) %> / <%= product.in_stock_status %>
-	<br>
-	<%= link_to "Edit product", edit_admin_product_path(product), remote: true %>
-	<div id="product-form" style="display:none;"></div>
+  <%= product.name %> / <%= number_to_currency(product.price) %> / <%= product.in_stock_status %>
+  <br>
+  <%= link_to "Edit product", edit_admin_product_path(product), remote: true %>
+  <div id="product-form" style="display:none;"></div>
 <% end %>

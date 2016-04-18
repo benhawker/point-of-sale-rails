@@ -1,20 +1,20 @@
 <section class='order-summary'>
-	<li class="col-md-3 no-bg-box">Order ID: <%= @order.id %></li>
-	<li class="col-md-3 box">Status: <%= @order.status.titleize %></li>
-	<li class="col-md-3 no-bg-box">Created at: <%= @order.created_at.strftime("%b %d, %Y") %></li>
-	<li class="col-md-3 box">Customer: <%= link_to @order.customer.name, customer_path(@order.customer) %></li>
+  <li class="col-md-3 no-bg-box">Order ID: <%= @order.id %></li>
+  <li class="col-md-3 box">Status: <%= @order.status.titleize %></li>
+  <li class="col-md-3 no-bg-box">Created at: <%= @order.created_at.strftime("%b %d, %Y") %></li>
+  <li class="col-md-3 box">Customer: <%= link_to @order.customer.name, customer_path(@order.customer) %></li>
 
-	<li class="col-md-3 no-bg-box">Order Total:
-		<span class="<%= @order.id %>_total"><%= number_to_currency(@order.total) %></span>
-	</li>
+  <li class="col-md-3 no-bg-box">Order Total:
+    <span class="<%= @order.id %>_total"><%= number_to_currency(@order.total) %></span>
+  </li>
 
-	<li class="col-md-3 box">Number of unique items in order:
-		<span class="<%= @order.id %>unique_order_items_count"><%= @order.order_items.count %></span>
-	</li>
+  <li class="col-md-3 box">Number of unique items in order:
+    <span class="<%= @order.id %>unique_order_items_count"><%= @order.order_items.count %></span>
+  </li>
 
-	<li class="col-md-3 no-bg-box">Total number of items in order:
-		<span class="<%= @order.id %>total_order_items_count"><%= @order.total_items %></span>
-	</li>
+  <li class="col-md-3 no-bg-box">Total number of items in order:
+    <span class="<%= @order.id %>total_order_items_count"><%= @order.total_items %></span>
+  </li>
 
-	<li class="col-md-3 box">Invoice Created?: <%= @order.invoice_created %> </li>
+  <li class="col-md-3 box">Invoice Created?: <%= @order.invoice_created %> </li>
 </section>

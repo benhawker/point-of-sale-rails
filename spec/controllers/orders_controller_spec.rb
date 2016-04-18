@@ -4,7 +4,7 @@ RSpec.describe OrdersController, type: :controller do
   let(:customer) { FactoryGirl.create(:customer) }
   let(:order) { FactoryGirl.create(:order, customer: customer) }
 
-	describe "#show" do
+  describe "#show" do
     it "renders the show template" do
       get :show, {id: order.id}
       expect(response).to render_template(:show)

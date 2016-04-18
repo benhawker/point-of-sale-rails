@@ -1,14 +1,14 @@
 <%= div_for @category do %>
-	<%= @category.name %> / <%= pluralize(@category.products.size, 'product') %>
-	<%= link_to "Edit Category", edit_admin_category_path(@category), remote: true %>
-		<div id="category-form" style="display:none;"></div>
+  <%= @category.name %> / <%= pluralize(@category.products.size, 'product') %>
+  <%= link_to "Edit Category", edit_admin_category_path(@category), remote: true %>
+    <div id="category-form" style="display:none;"></div>
 
-	<hr>
-	<div class="category-products">
-		<% @category.products.each_with_index do |product, index| %>
-			<li class="no-style">
-				<%= index + 1 %>. <%= link_to "#{product.name}", admin_product_path(product) %> / <%= number_to_currency(product.price) %> / <%= product.in_stock_status %>
-			</li>
-		<% end %>
-	</div>
+  <hr>
+  <div class="category-products">
+    <% @category.products.each_with_index do |product, index| %>
+      <li class="no-style">
+        <%= index + 1 %>. <%= link_to "#{product.name}", admin_product_path(product) %> / <%= number_to_currency(product.price) %> / <%= product.in_stock_status %>
+      </li>
+    <% end %>
+  </div>
 <% end %>

@@ -1,11 +1,11 @@
 <%= render 'order_summary' %>
 
 <ul id="order-item-list">
-	<% @order.order_items.each do |order_item| %>
-		<%= render 'order_items/order_item', order_item: order_item %>
-	<% end %>
+  <% @order.order_items.each do |order_item| %>
+    <%= render 'order_items/order_item', order_item: order_item %>
+  <% end %>
 
-	<div id="order-item-form" style="display:none;"></div>
+  <div id="order-item-form" style="display:none;"></div>
 </ul>
 
 

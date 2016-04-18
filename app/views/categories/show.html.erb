@@ -1,12 +1,12 @@
 <%= div_for @category do %>
-	<%= @category.name %> / <%= pluralize(@category.products.size, 'product') %>
+  <%= @category.name %> / <%= pluralize(@category.products.size, 'product') %>
 
-	<hr>
-	<div class="category-products">
-		<% @category.products.each_with_index do |product, index| %>
-			<li class="no-style">
-				<%= index + 1 %>. <%= link_to "#{product.name}", product_path(product) %> / <%= number_to_currency(product.price) %> / <%= product.in_stock_status %>
-			</li>
-		<% end %>
-	</div>
+  <hr>
+  <div class="category-products">
+    <% @category.products.each_with_index do |product, index| %>
+      <li class="no-style">
+        <%= index + 1 %>. <%= link_to "#{product.name}", product_path(product) %> / <%= number_to_currency(product.price) %> / <%= product.in_stock_status %>
+      </li>
+    <% end %>
+  </div>
 <% end %>

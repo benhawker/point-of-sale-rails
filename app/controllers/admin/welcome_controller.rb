@@ -1,8 +1,8 @@
 class Admin::WelcomeController < ApplicationController
-	layout 'admin'
+  layout 'admin'
 
-	def index
-	end
+  def index
+  end
 
 end
 
