@@ -5,5 +5,4 @@ class InvoicePresenter
     @customer = order.customer
   end
 
-
 end

@@ -56,7 +56,7 @@ class OrderItemsController < ApplicationController
       end
     end
   end
- 
+
   private
 
   def order_items_params

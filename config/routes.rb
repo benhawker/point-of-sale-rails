@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :products
   resources :customers
-  
+
   resources :orders do
     resources :order_items
   end

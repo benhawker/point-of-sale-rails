@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
 
   #Search
   def self.search(search)
-    where("name ILIKE ?", "%#{search}%") 
+    where("name ILIKE ?", "%#{search}%")
   end
 
   def in_stock_status

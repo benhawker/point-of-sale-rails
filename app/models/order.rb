@@ -8,9 +8,6 @@ class Order < ActiveRecord::Base
 	accepts_nested_attributes_for :order_items, allow_destroy: true
 	accepts_nested_attributes_for :customer
 
- 	# Association validations
-  # validates_presence_of :customer ##Inverse of vs. validates presence???
-
 	def calculate_total
 		total = 0.0
 		self.order_items.each do |order_item|
@@ -30,7 +27,7 @@ class Order < ActiveRecord::Base
 			total += order_item.quantity
 		end
 
-		return total
+		total
 	end
 
 	def invoice_created

@@ -4,7 +4,7 @@
 	/ Unit Price: <span class="<%= order_item.id %>_unit_price"><%= number_to_currency(order_item.product.price) %></span>
 	/ Line Total: <span class="<%= order_item.id %>_line_total"><%= number_to_currency(order_item.calculate_total) %></span>
 	/ <%= link_to "Remove Item", order_order_item_path(@order, order_item), method: :delete %>
-	
+
 	<div class='order-items-nested-form'>
 		<%= render 'order_items/nested_form', order_item: order_item %>
 	</div>
