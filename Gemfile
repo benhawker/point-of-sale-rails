@@ -32,6 +32,7 @@ group :development, :test do
   gem 'guard-rspec', require: false
   gem 'launchy'
   gem 'coveralls', require: false
+  gem 'faker'
 end
 
 group :test do
