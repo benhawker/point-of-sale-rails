@@ -22,15 +22,15 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    find_category
   end
 
   def edit
-    @category = Category.find(params[:id])
+    find_category
   end
 
   def update
-    @category = Category.find(params[:id])
+    find_category
     if @category.update(category_params)
       flash[:notices] = ["Category was successfully updated"]
       render 'show'
@@ -41,7 +41,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:id])
+    find_category
     if @category.destroy
       flash[:notices] = ["Category was successfully deleted"]
       redirect_to admin_categories_path
@@ -55,6 +55,10 @@ class Admin::CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def find_category
+    @category = Category.find(params[:id])
   end
 
 end

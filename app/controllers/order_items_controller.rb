@@ -22,7 +22,7 @@ class OrderItemsController < ApplicationController
   end
 
   def update
-    @order_item = @order.order_items.find(params[:id])
+    find_order_item
     respond_to do |format|
       if @order_item.update(order_items_params)
         format.html do
@@ -40,7 +40,7 @@ class OrderItemsController < ApplicationController
   end
 
   def destroy
-    @order_item = @order.order_items.find(params[:id])
+    find_order_item
     respond_to do |format|
       if @order_item.destroy
         format.html do
@@ -65,6 +65,10 @@ class OrderItemsController < ApplicationController
 
   def get_order
     @order = Order.find(params[:order_id])
+  end
+
+  def find_order_item
+    @order_item = @order.order_items.find(params[:id])
   end
 
 end

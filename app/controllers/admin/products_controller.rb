@@ -27,15 +27,15 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
+    find_product
   end
 
   def edit
-    @product = Product.find(params[:id])
+    find_product
   end
 
   def update
-    @product = Product.find(params[:id])
+    find_product
     @product.category = Category.find(params[:product][:category])
     if @product.update(product_params)
       flash[:notices] = ["Product was successfully updated"]
@@ -47,7 +47,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    find_product
     if @product.destroy
       flash[:notices] = ["Product was successfully deleted"]
       redirect_to admin_products_path
@@ -61,6 +61,10 @@ class Admin::ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit(:name, :description, :price)
+  end
+
+  def find_product
+    @product = Product.find(params[:id])
   end
 
 end

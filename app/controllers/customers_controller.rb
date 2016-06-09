@@ -19,15 +19,15 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    find_customer
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    find_customer
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    find_customer
     if @customer.update(customer_params)
       flash[:notices] = ["Customer was successfully updated"]
       render 'show'
@@ -38,7 +38,7 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    @customer = Customer.find(params[:id])
+    find_customer
     if @customer.destroy
       flash[:notices] = ["Customer was successfully deleted"]
       redirect_to customers_path
@@ -52,6 +52,10 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:name, :email)
+  end
+
+  def find_customer
+    @customer = Customer.find(params[:id])
   end
 
 end

@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    find_order
     respond_to do |format|
       format.html # show.html.erb
       format.js # show.js.erb
@@ -33,11 +33,11 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @order = Order.find(params[:id])
+    find_order
   end
 
   def update
-    @order = Order.find(params[:id])
+    find_order
     @order.customer = Customer.find(params[:order][:customer])
     if @order.update(order_params)
       @order.calculate_total
@@ -50,7 +50,7 @@ class OrdersController < ApplicationController
   end
 
   def destroy
-    @order = Order.find(params[:id])
+    find_order
     @orders = Order.all
 
     respond_to do |format|
@@ -68,6 +68,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:customer_name, order_items_attributes:[:id, :product_id, :quantity])
+  end
+
+  def find_order
+    @order = Order.find(params[:id])
   end
 
 
