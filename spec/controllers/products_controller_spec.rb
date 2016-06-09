@@ -29,19 +29,6 @@ RSpec.describe Admin::ProductsController, type: :controller do
     end
   end
 
-  describe "#new" do
-    it "assigns a new product as @product" do
-      get :new
-      expect(assigns(:product)).to be_a_new(Product)
-    end
-
-    it "renders the new template" do
-      get :new
-      expect(response).to render_template(:new)
-      expect(response.status).to eql(200)
-    end
-  end
-
   describe "#edit" do
     it "assigns the requested product as @product" do
       get :edit, {:id => product.to_param}

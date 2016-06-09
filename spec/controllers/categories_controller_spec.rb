@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Admin::CategoriesController, type: :controller do
+RSpec.describe CategoriesController, type: :controller do
   let(:category) { FactoryGirl.create(:category) }
 
   describe "#show" do
@@ -28,26 +28,4 @@ RSpec.describe Admin::CategoriesController, type: :controller do
       expect(response.status).to eq(200)
     end
   end
-
-  describe "#new" do
-    it "assigns a new category as @category" do
-      get :new
-      expect(assigns(:category)).to be_a_new(Category)
-    end
-
-    it "renders the new template" do
-      get :new
-      expect(response).to render_template(:new)
-      expect(response.status).to eq(200)
-    end
-  end
-
-  describe "#edit" do
-    it "assigns the requested category as @category" do
-      get :edit, {:id => category.to_param}
-      expect(assigns(:category)).to eq(category)
-    end
-  end
-
-
 end

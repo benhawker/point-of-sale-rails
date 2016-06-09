@@ -29,25 +29,4 @@ RSpec.describe OrdersController, type: :controller do
       expect(response.status).to eql(200)
     end
   end
-
-  describe "#new" do
-    it "assigns a new order as @order" do
-      get :new
-      expect(assigns(:order)).to be_a_new(Order)
-    end
-
-    it "renders the new template" do
-      get :new
-      expect(response).to render_template(:new)
-      expect(response.status).to eql(200)
-    end
-  end
-
-  describe "#edit" do
-    it "assigns the requested order as @order" do
-      get :edit, {:id => order.to_param}
-      expect(assigns(:order)).to eq(order)
-    end
-  end
-
 end

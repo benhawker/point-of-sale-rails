@@ -8,13 +8,16 @@ RSpec.describe Order, type: :model do
   it { should have_one(:invoice) }
 
   let(:customer) { FactoryGirl.create(:customer) }
+  let(:product) { FactoryGirl.create(:product) }
+  let(:order_item) { FactoryGirl.create(:order_item, product: product, order: order, quantity: 1) }
+  let(:order_item) { FactoryGirl.create(:order_item, product: product, order: order, quanityt: 1) }
+
   let(:order) { FactoryGirl.create(:order, customer: customer) }
-  let(:order_item) { FactoryGirl.create(:order_item, product: product, order: order) }
-  let(:order_item) { FactoryGirl.create(:order_item, product: product, order: order) }
 
   describe "#calculate_total" do
     it "calculates the correct total" do
-      expect(order.calculate_total).to eq (123)
+      order.calculate_total
+      expect(order.total).to eq (123)
     end
   end
 

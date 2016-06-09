@@ -41,13 +41,4 @@ RSpec.describe Admin::CategoriesController, type: :controller do
       expect(response.status).to eql(200)
     end
   end
-
-  describe "#edit" do
-    it "assigns the requested category as @category" do
-      get :edit, {:id => category.to_param}
-      expect(assigns(:category)).to eq(category)
-    end
-  end
-
-
 end
