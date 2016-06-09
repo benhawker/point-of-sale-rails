@@ -19,5 +19,4 @@ feature "Categories" do
     click_link "Test Category"
     expect(current_path).to eq category_path(category)
   end
-
 end

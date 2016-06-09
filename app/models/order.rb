@@ -33,5 +33,4 @@ class Order < ActiveRecord::Base
   def invoice_created
     self.invoice ? "Yes" : "No"
   end
-
 end

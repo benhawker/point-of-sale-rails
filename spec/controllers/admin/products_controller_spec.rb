@@ -25,7 +25,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
     it "renders the index template" do
       get :index
       expect(response).to render_template(:index)
-      expect(response.status).to eql(200)
+      expect(response.status).to eq(200)
     end
   end
 
@@ -38,7 +38,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
     it "renders the new template" do
       get :new
       expect(response).to render_template(:new)
-      expect(response.status).to eql(200)
+      expect(response.status).to eq(200)
     end
   end
 
