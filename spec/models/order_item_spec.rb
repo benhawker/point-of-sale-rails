@@ -11,7 +11,7 @@ describe OrderItem do
 
   describe "#calculate_total" do
     it "should caculate the ocrrect total for each order item" do
-      expect(order_item.calculate_total).to eq (123)
+      expect(order_item.calculate_total).to eq (10.0)
     end
   end
 end
