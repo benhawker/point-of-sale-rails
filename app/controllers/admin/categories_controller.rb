@@ -14,7 +14,7 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      flash[:notices] = ['Category created successfully']
+      flash[:notices] = ['Category Created']
       redirect_to admin_categories_path
     else
       render 'new'
@@ -32,10 +32,10 @@ class Admin::CategoriesController < ApplicationController
   def update
     find_category
     if @category.update(category_params)
-      flash[:notices] = ["Category was successfully updated"]
+      flash[:notices] = ["Category Updated"]
       render 'show'
     else
-      flash[:notices] = ["Category could not be updated"]
+      flash[:notices] = ["Category could not be updated - please try again."]
       render 'edit'
     end
   end
@@ -43,10 +43,10 @@ class Admin::CategoriesController < ApplicationController
   def destroy
     find_category
     if @category.destroy
-      flash[:notices] = ["Category was successfully deleted"]
+      flash[:notices] = ["Category Deleted"]
       redirect_to admin_categories_path
     else
-      flash[:notices] = ["Category could not be deleted"]
+      flash[:notices] = ["Category could not be deleted - please try again."]
       render admin_category_path(@category)
     end
   end

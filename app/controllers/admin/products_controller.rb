@@ -19,7 +19,7 @@ class Admin::ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.category = Category.find(params[:product][:category])
     if @product.save
-      flash[:notices] = ['Product created successfully']
+      flash[:notices] = ['Product Created']
       redirect_to admin_products_path
     else
       render 'new'
@@ -38,10 +38,10 @@ class Admin::ProductsController < ApplicationController
     find_product
     @product.category = Category.find(params[:product][:category])
     if @product.update(product_params)
-      flash[:notices] = ["Product was successfully updated"]
+      flash[:notices] = ["Product Updated"]
       render 'show'
     else
-      flash[:notices] = ["Product could not be updated"]
+      flash[:notices] = ["Product could not be updated - please try again."]
       render 'edit'
     end
   end
@@ -49,10 +49,10 @@ class Admin::ProductsController < ApplicationController
   def destroy
     find_product
     if @product.destroy
-      flash[:notices] = ["Product was successfully deleted"]
+      flash[:notices] = ["Product Deleted"]
       redirect_to admin_products_path
     else
-      flash[:notices] = ["Product could not be deleted"]
+      flash[:notices] = ["Product could not be deleted - please try again."]
       render admin_product_path(@product)
     end
   end
@@ -66,6 +66,4 @@ class Admin::ProductsController < ApplicationController
   def find_product
     @product = Product.find(params[:id])
   end
-
 end
-

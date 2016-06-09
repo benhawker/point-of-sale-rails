@@ -10,7 +10,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.new(order_items_params)
     if @order_item.save(order_items_params)
       @order.calculate_total
-      flash[:notices] = ["New order item successfully created"]
+      flash[:notices] = ["New Item Added"]
       redirect_to order_path(@order)
     else
       render 'new'
@@ -27,7 +27,7 @@ class OrderItemsController < ApplicationController
       if @order_item.update(order_items_params)
         format.html do
           @order.calculate_total
-          flash[:notices] = ["Order item successfully updated"]
+          flash[:notices] = ["Item Updated"]
           redirect_to order_path(@order)
         end
         format.js
@@ -45,7 +45,7 @@ class OrderItemsController < ApplicationController
       if @order_item.destroy
         format.html do
           @order.calculate_total
-          flash[:notices] = ["Order item successfully removed"]
+          flash[:notices] = ["Item Removed"]
           redirect_to order_path(@order)
         end
         format.js

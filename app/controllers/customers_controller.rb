@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
-      flash[:notices] = ['Customer created successfully']
+      flash[:notices] = ['Customer Created']
       redirect_to customers_path
     else
       render 'new'
@@ -29,10 +29,10 @@ class CustomersController < ApplicationController
   def update
     find_customer
     if @customer.update(customer_params)
-      flash[:notices] = ["Customer was successfully updated"]
+      flash[:notices] = ["Customer Updated"]
       render 'show'
     else
-      flash[:notices] = ["Customer could not be updated"]
+      flash[:notices] = ["Customer could not be updated - please try again."]
       render 'edit'
     end
   end
@@ -40,10 +40,10 @@ class CustomersController < ApplicationController
   def destroy
     find_customer
     if @customer.destroy
-      flash[:notices] = ["Customer was successfully deleted"]
+      flash[:notices] = ["Customer Deleted"]
       redirect_to customers_path
     else
-      flash[:notices] = ["Customer could not be deleted"]
+      flash[:notices] = ["Customer could not be deleted - please try again."]
       render customer_path(@Customer)
     end
   end

@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       respond_with(@order)
     else
       flash[:notices] = ['Order was not created. Please try again']
-      render 'new'
+      redirect_to 'welcome/index'
     end
   end
 
@@ -34,19 +34,6 @@ class OrdersController < ApplicationController
 
   def edit
     find_order
-  end
-
-  def update
-    find_order
-    @order.customer = Customer.find(params[:order][:customer])
-    if @order.update(order_params)
-      @order.calculate_total
-      flash[:notices] = ["Order was successfully updated"]
-      render 'show'
-    else
-      flash[:notices] = ["Order could not be updated"]
-      render 'edit'
-    end
   end
 
   def destroy
