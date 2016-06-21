@@ -60,6 +60,4 @@ class OrdersController < ApplicationController
   def find_order
     @order = Order.find(params[:id])
   end
-
-
 end

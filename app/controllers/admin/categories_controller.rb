@@ -60,5 +60,4 @@ class Admin::CategoriesController < ApplicationController
   def find_category
     @category = Category.find(params[:id])
   end
-
 end

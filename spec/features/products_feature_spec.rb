@@ -4,11 +4,11 @@ feature "Products" do
 
   let!(:category) { Category.create(name: "Test") }
 
-  it "category can be saved" do
+  xit "category can be saved" do
     expect(category).to be_valid
   end
 
-  it 'can create a new product', js: true do
+  xit 'can create a new product', js: true do
     visit root_path
     click_link 'New Product'
     fill_in 'product[name]', with: "My new product"
